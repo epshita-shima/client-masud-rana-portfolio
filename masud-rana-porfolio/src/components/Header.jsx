@@ -1,0 +1,69 @@
+import React from 'react'
+import { motion } from "framer-motion";
+
+const Header = () => {
+    const navLinks = [
+        { name: "Home", href: "/" },
+        { name: "About", href: "/about" },
+        { name: "Work", href: "/work" },
+        { name: "Blog", href: "/blog" },
+        { name: "Article", href: "/article" },
+        { name: "Support", href: "/support" },
+    ];
+    return (
+        <header className='container shadow-lg mx-auto  p-4'>
+            <div className="navbar bg-white ">
+                <div className="lg:navbar-start md:navbar-start w-full flex justify-between sm:flex sm:justify-between">
+                    <motion.div initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                         className="dropdown ">
+                        <div tabIndex={0} role="button" className="btn btn-ghost text-black lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                        </div>n
+                        <motion.ul
+                            tabIndex={0}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.3 }}
+                            class="menu menu-sm dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow">
+
+                            {navLinks.map((link, index) => (
+                                <li key={index} className="text-black">
+                                    <a href={link.href}>{link.name}</a>
+                                </li>
+                            ))}
+                        </motion.ul>
+                    </motion.div>
+                    <motion.a
+                        initial={{ opacity: 0, y: -30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="btn btn-ghost text-black text-xl hover:bg-[#CB4154] hover:border-[#CB4154] hover:text-white">LOGO</motion.a>
+                </div>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="navbar-end hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1">
+                        {navLinks.map((link, index) => (
+                            <motion.li
+                                key={index}
+                                className="text-black hover:text-[#CB4154]"
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ duration: 0.3 }}>
+                                <a href={link.href}>{link.name}</a>
+                            </motion.li>
+                        ))}
+                    </ul>
+                </motion.div>
+
+            </div>
+        </header>
+
+
+    )
+}
+
+export default Header
