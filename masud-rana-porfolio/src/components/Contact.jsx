@@ -39,7 +39,11 @@ const Contact = () => {
   };
 
   return (
-    <div div className="mt-12 flex justify-between flex-wrap">
+   <div className="container mx-0">
+     <div  className="mt-12 flex justify-between flex-wrap"
+    style={{backgroundImage:"url('https://i.pinimg.com/736x/d6/27/56/d62756dac8380c68bf7e8bd8bcc8c5bd.jpg')"}}
+    >
+
       <div className="w-full sm:w-[20%]">
         <h2 className=" font-serif font-bold sm:font-normal text-black mb-6 text-[20px] sm:text-[16px]">Contact Me</h2>
       </div>
@@ -136,6 +140,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+   </div>
   );
 };
 

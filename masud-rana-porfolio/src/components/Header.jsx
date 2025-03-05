@@ -11,10 +11,10 @@ const Header = () => {
         { name: "Support", href: "/support" },
     ];
     return (
-        <header className='container shadow-lg mx-auto  p-4'>
-            <div className="navbar bg-white ">
-                <div className="lg:navbar-start md:navbar-start w-full flex justify-between sm:flex sm:justify-between">
-                    <motion.div initial={{ opacity: 0, x: -50 }}
+<header className="bg-white shadow-sm p-2 sticky top-0 z-50">
+  <div className="navbar container mx-auto">
+    <div className="lg:navbar-start md:navbar-start w-full flex justify-between sm:flex sm:justify-between">
+      <motion.div initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
                          className="dropdown ">
