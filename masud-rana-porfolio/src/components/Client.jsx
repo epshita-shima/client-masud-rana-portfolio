@@ -3,25 +3,28 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
+import client1 from "../assets/image/client-1.jpg";
+import client2 from "../assets/image/client-2.jpg";
+
 const Client = () => {
   const clientFeedbacks = [
     {
-      img: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+      img: `${client1}`,
       country: "United Kingdom",
       rating: 4.8,
-      feedback: "Exceptional service and attention to detail. Highly recommend!",
+      feedback: "Exceptional service and attention to detail. Highly recommend! Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae deleniti rem atque facilis magnam adipisci autem non quasi ducimus quam ab unde, molestias culpa consequuntur debitis eligendi impedit minus totam.",
     },
     {
-      img: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+      img: `${client2}`,
       country: "United States",
       rating: 4.9,
-      feedback: "A truly outstanding experience from start to finish!",
+      feedback: "A truly outstanding experience from start to finish! Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae deleniti rem atque facilis magnam adipisci autem non quasi ducimus quam ab unde, molestias culpa consequuntur debitis eligendi impedit minus totam.",
     },
     {
       img: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
       country: "Canada",
       rating: 4.7,
-      feedback: "Professional and reliable. Would definitely work with them again.",
+      feedback: "Professional and reliable. Would definitely work with them again. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae deleniti rem atque facilis magnam adipisci autem non quasi ducimus quam ab unde, molestias culpa consequuntur debitis eligendi impedit minus totam.",
     },
   ];
 
@@ -46,7 +49,7 @@ const Client = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        What My Clients Say
+       Client Experiences
       </motion.h2>
 
       {/* Clients Carousel */}
@@ -56,29 +59,22 @@ const Client = () => {
             <motion.div
               key={index}
               className="p-6 bg-white rounded-lg shadow-xl text-center"
-              whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              // whileHover={{ scale: 1.05 }}
+              // initial={{ opacity: 0, y: 30 }}
+              // animate={{ opacity: 1, y: 0 }}
+              // transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               {/* Client Image */}
               <div className="flex justify-center">
                 <img
                   src={client.img}
                   alt={`Client ${index + 1}`}
-                  className="w-24 h-24 md:w-28 md:h-28 rounded-full shadow-md"
+                  className="w-32 h-32 md:w-28 md:h-28 rounded-full shadow-md border-2 border-blue-200 transform transition duration-300 hover:scale-110"
                 />
               </div>
 
               {/* Country Name */}
-              <h3 className="text-xl font-semibold mt-4">{client.country}</h3>
-
-              {/* Ratings */}
-              <div className="flex justify-center gap-1 mt-2 text-yellow-500">
-                {Array.from({ length: Math.floor(client.rating) }, (_, i) => (
-                  <Star key={i} fill="currentColor" size={20} />
-                ))}
-              </div>
+              <h3 className="text-xl text-black font-semibold mt-4">{client.country}</h3>
 
               {/* Feedback */}
               <p className="text-gray-600 mt-4 text-lg">{client.feedback}</p>

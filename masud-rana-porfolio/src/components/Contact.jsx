@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from "sweetalert";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const form = useRef();
@@ -39,108 +40,120 @@ const Contact = () => {
   };
 
   return (
-   <div className="container mx-0">
-     <div  className="mt-12 flex justify-between flex-wrap"
-    style={{backgroundImage:"url('https://i.pinimg.com/736x/d6/27/56/d62756dac8380c68bf7e8bd8bcc8c5bd.jpg')"}}
-    >
+    <section className="container mx-auto px-4 py-12">
+      {/* Title Section */}
+      <motion.div
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-3xl font-serif font-bold text-[#222]">Contact Me</h2>
+        <p className="text-gray-600 mt-2">I’d love to hear from you — let’s connect!</p>
+      </motion.div>
 
-      <div className="w-full sm:w-[20%]">
-        <h2 className=" font-serif font-bold sm:font-normal text-black mb-6 text-[20px] sm:text-[16px]">Contact Me</h2>
-      </div>
-      <div className="w-full sm:w-[80%] bg-white ">
-        <div className="bg-white p-8 pt-4 sm:pt-8 rounded-lg shadow-lg w-full max-w-full sm:max-w-[85%] ">
+      {/* Contact Form Container */}
+      <div className="flex justify-center">
+        <motion.div
+          className="w-full bg-white p-8 rounded-2xl shadow-xl border border-gray-100"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+        >
           <Formik
             initialValues={{ name: "", email: "", message: "" }}
             validationSchema={validationSchema}
             onSubmit={sendEmail}
           >
             {({ isSubmitting }) => (
-              <Form ref={form} >
-                {/* Name Field */}
-                <div className="mb-4">
-                  <label
-                    htmlFor="name"
-                    className="block font-semibold text-gray-700"
-                  >
-                    Name
-                  </label>
-                  <Field
-                    type="text"
-                    name="name"
-                    placeholder='Enter your name'
-                    id="name"
-                    className="mt-1 p-2 w-full text-black border rounded focus:outline-none focus:ring-2 focus:ring-[#0CC0DF] bg-white"
-                  />
-                  <ErrorMessage
-                    name="name"
-                    component="div"
-                    className="text-red-500 text-sm"
-                  />
+              <Form className="w-full space-y-5">
+              <div className="flex flex-col sm:flex-row gap-6 items-stretch">
+                {/* Left Column */}
+                <div className="w-full sm:w-1/2 h-full flex flex-col justify-between gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                      Name
+                    </label>
+                    <Field
+                      type="text"
+                      name="name"
+                      id="name"
+                      placeholder="Enter your name"
+                      className="mt-1 p-3 w-full border rounded-xl focus:ring-2 focus:ring-[#0CC0DF] outline-none text-black"
+                    />
+                    <ErrorMessage name="name" component="div" className="text-red-500 text-sm mt-1" />
+                  </div>
+            
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                      Email
+                    </label>
+                    <Field
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Enter your email"
+                      className="mt-1 p-3 w-full border rounded-xl focus:ring-2 focus:ring-[#0CC0DF] outline-none text-black"
+                    />
+                    <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
+                  </div>
+            
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                      Phone
+                    </label>
+                    <Field
+                      type="tel"
+                      name="phone"
+                      id="phone"
+                      placeholder="Enter your phone"
+                      className="mt-1 p-3 w-full border rounded-xl focus:ring-2 focus:ring-[#0CC0DF] outline-none text-black"
+                    />
+                    <ErrorMessage name="phone" component="div" className="text-red-500 text-sm mt-1" />
+                  </div>
                 </div>
-
-                {/* Email Field */}
-                <div className="mb-4">
-                  <label
-                    htmlFor="email"
-                    className="block font-semibold text-gray-700"
-                  >
-                    Email
-                  </label>
-                  <Field
-                    type="email"
-                    name="email"
-                    placeholder='Enter your email'
-                    id="email"
-                    className="mt-1 p-2 w-full text-black border rounded focus:outline-none focus:ring-2 focus:ring-[#0CC0DF] bg-white"
-                  />
-                  <ErrorMessage
-                    name="email"
-                   
-                    component="div"
-                    className="text-red-500 text-sm "
-                  />
+            
+                {/* Right Column */}
+                <div className="w-full sm:w-1/2 h-full flex flex-col justify-between">
+                  <div className="flex-grow flex flex-col justify-between h-full">
+                    <div className="flex-grow">
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                        Message
+                      </label>
+                      <Field
+                        as="textarea"
+                        name="message"
+                        id="message"
+                        rows="9"
+                        placeholder="Type your message"
+                        className="mt-1 p-3 w-full border rounded-xl focus:ring-2 focus:ring-[#0CC0DF] outline-none text-black resize-none h-full"
+                      />
+                      <ErrorMessage name="message" component="div" className="text-red-500 text-sm mt-1" />
+                    </div>
+                  </div>
                 </div>
-
-                {/* Message Field (Textarea) */}
-                <div className="mb-4">
-                  <label
-                    htmlFor="message"
-                    className="block font-semibold text-gray-700"
-                  >
-                    Message
-                  </label>
-                  <Field
-                    as="textarea"
-                    name="message"
-                    placeholder='Type your message'
-                    id="message"
-                    rows="3"
-                    className="mt-1 p-2 w-full border text-black rounded focus:outline-none focus:ring-2 focus:ring-[#0CC0DF] bg-white"
-                  />
-                  <ErrorMessage
-                    name="message"
-                    component="div"
-                    className="text-red-500 text-sm"
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <div className="flex justify-center">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-[50%]   bg-[#0CC0DF]  text-white p-2 rounded hover:bg-[#0CC0DF] transition duration-200`}
-                  >
-                    {isSubmitting ? "Submitting..." : "Submit"}
-                  </button>
-                </div>
-              </Form>
+              </div>
+            
+              {/* Submit Button */}
+              <div className="text-center pt-4">
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-[40%] bg-[#CB4154] hover:bg-[#CB4154] text-white font-semibold p-3 rounded-xl transition duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </motion.button>
+              </div>
+            </Form>
+            
+            
             )}
           </Formik>
-        </div>
+        </motion.div>
       </div>
-    </div>
-   </div>
+    </section>
   );
 };
 
