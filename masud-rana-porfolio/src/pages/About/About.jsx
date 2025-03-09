@@ -3,7 +3,7 @@ import { div } from "framer-motion/client";
 
 const About = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mb-4">
       <div className=" flex flex-col lg:flex-row items-center justify-center bg-white  py-12">
         {/* Image Section with Animation */}
         <motion.div
@@ -26,7 +26,7 @@ const About = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <h2 className="text-4xl font-bold text-black mb-4">Intro</h2>
+          <h2 className="text-4xl font-bold text-black mb-4">About Me</h2>
           <p className="text-lg text-gray-600 text-justify">
             Hi, I'm <span className="text-[#CB4154] font-semibold">Masud Rana</span>, With a keen eye for design and a passion for data, I blend creativity with precision. As a <strong>Graphic Designer and Data Specialist</strong> , I craft visually compelling designs while transforming complex data into clear, actionable insights. Whether it’s branding, data visualization, or strategic analytics, I merge aesthetics with intelligence to create meaningful and impactful solutions.
           </p>
@@ -55,7 +55,7 @@ const About = () => {
           </motion.div>
         </motion.div>
       </div>
-      <div>
+      {/* <div>
         <h3 className="text-[#CB4154] text-2xl font-normal tracking-widest">About Masud Rana</h3>
         <div class="grid grid-cols-12 gap-4">
           <div class="col-span-8">
@@ -94,7 +94,63 @@ const About = () => {
           </div>
         </div>
 
+      </div> */}
+
+<div className="px-4 md:px-12 lg:px-20">
+      {/* Section Title */}
+      <h3 className="text-[#CB4154] text-2xl font-normal tracking-widest animate__animated animate__fadeInUp">
+        About Masud Rana
+      </h3>
+
+      {/* Responsive Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-6">
+        {/* Left Content */}
+        <div className="md:col-span-8 animate__animated animate__fadeInLeft">
+          <p className="text-2xl text-black mb-6">
+            Global Growth Advisor | Strategic Investor | Leadership Mentor
+          </p>
+          <p className="text-lg text-gray-600 text-justify">
+            I bring a unique perspective to business advisory, combining international expertise with deep investment insight and leadership development experience. As UK Ambassador for Tech Nordic Advocates, I play a key role in fostering technology collaboration between the UK and Nordic-Baltic regions, actively connecting innovators, investors, and business leaders across borders.
+          </p>
+
+          {/* Career Highlights */}
+          <h3 className="text-black text-2xl mt-6 mb-4">Career Highlights:</h3>
+          <ul className="text-gray-600 text-lg list-disc pl-5">
+            <li>Founder of an international business operating across 21 countries</li>
+            <li>Advisory Board Member for high-growth companies and scale-ups</li>
+            <li>UK Ambassador for Tech Nordic Advocates, bridging international tech ecosystems</li>
+            <li>Former City lawyer specializing in IP, commercial, and branding law</li>
+            <li>Active angel investor and tech startup mentor</li>
+            <li>Female Business Owner of the Year recipient</li>
+            <li>Successful Dragons' Den participant and regular awards judge</li>
+            <li>Cranfield School of Management BGP alumna</li>
+          </ul>
+
+          {/* Paragraphs */}
+          <p className="text-lg text-gray-600 text-justify mt-6">
+            My journey from corporate law to entrepreneurship and global advisory has given me unique insights into scaling businesses internationally. I've built and scaled my own international business, advised global corporations including a $148 billion turnover brand, and now help ambitious companies prepare for international growth and investment.
+          </p>
+
+          <p className="text-lg text-gray-600 text-justify mt-4">
+            As an advisory board member, I provide strategic guidance to companies navigating critical growth phases, drawing on my diverse experience across international markets, technology, and investment.
+          </p>
+
+          <p className="text-lg text-justify text-gray-600 mt-4">
+            As a speaker and consultant, I share practical wisdom on global expansion, investment readiness, and strategic leadership. My approach combines international business acumen with actionable insights.
+          </p>
+        </div>
+
+        {/* Right Side: Button Section */}
+        <div className="md:col-span-4 flex md:justify-center animate__animated animate__fadeInRight">
+          <div className="bg-[#FBF1F2] h-44 w-full md:w-64 flex items-center justify-center rounded-lg shadow-md">
+            <button className="btn bg-[#CB4154] text-white p-4 w-52 md:w-42 border-none h-auto tracking-wider mt-8 
+              hover:scale-105 transition-transform duration-300 ease-in-out">
+              SHEDULE A STRATEGIC CONSULTATION
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
     </div>
   );
 };
