@@ -26,7 +26,7 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }} // Delayed smooth animation
         >
           <motion.h1 
-            className="text-5xl font-bold"
+            className="text-3xl font-bold"
             initial={{ scale: 0.9 }} 
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -35,7 +35,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p 
-            className="py-6 px-4 lg:px-0"
+            className="py-6 px-4 text-lg lg:px-0"
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             transition={{ duration: 1, delay: 0.6 }}

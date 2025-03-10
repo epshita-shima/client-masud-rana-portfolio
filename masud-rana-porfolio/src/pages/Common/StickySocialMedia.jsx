@@ -7,9 +7,9 @@ const StickySocialMedia = () => {
     initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
-      className="hidden  lg:flex  fixed ml-4 top-3/4 transform -translate-y-1/2 flex-col space-y-4 z-50"
+      className="hidden  lg:flex  fixed ml-4 top-2/4 transform -translate-y-1/2 flex-col space-y-4 z-50"
     >
-      {/* Social Media Icons */}
+
       <a
   href="https://facebook.com"
   target="_blank"
