@@ -40,10 +40,10 @@ const Contact = () => {
   };
 
   return (
-    <section className="container mx-auto px-4 py-12">
+    <section className="container mx-auto pt-12 px-4 h-screen">
       {/* Title Section */}
       <motion.div
-        className="text-center mb-12"
+        className="text-center mb-8"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -135,7 +135,7 @@ const Contact = () => {
               </div>
             
               {/* Submit Button */}
-              <div className="text-center pt-4">
+              <div className="text-center">
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}

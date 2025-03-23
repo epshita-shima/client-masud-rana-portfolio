@@ -10,8 +10,6 @@ const Main = () => {
       <StickySocialMedia></StickySocialMedia>
        <Header></Header>
         <Outlet></Outlet>
-       
-        
         <Footer></Footer>
     </div>
   )

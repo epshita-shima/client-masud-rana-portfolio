@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div className="hero container bg-white text-black  lg:p-8 mx-auto">
+    <div className="hero h-screen container bg-white text-black  lg:p-8 mx-auto ">
       <div className="grid grid-cols-1 py-6 lg:grid-cols-2 items-center gap-10 ml-4">
         
         {/* Animated Image */}
@@ -13,7 +13,7 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeOut" }} // Smooth animation
         >
           <img
-            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?cs=srgb&dl=pexels-suliman-sallehi-1704488.jpg&fm=jpg"
             className="w-48 h-48 md:w-56 md:h-56  lg:w-96 max-w-sm rounded-[50%] shadow-2xl lg:h-96"
           />
         </motion.div>

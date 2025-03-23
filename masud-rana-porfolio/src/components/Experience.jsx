@@ -2,8 +2,9 @@ import React from 'react'
 
 const Experience = () => {
     return (
-        <div className="bg-white px-4 py-12">
-        <div className="container mx-auto bg-[#CB4154] h-auto">
+        <div className="bg-white  p-2 mb-24">
+        <div className="container mx-auto px-4">
+          <div className='w-full bg-[#CB4154] h-auto'>
           <div className="flex flex-col sm:flex-row sm:justify-between">
             {/* Image First on small screens */}
             <div className="w-full sm:w-[45%] order-1 sm:order-2">
@@ -51,6 +52,7 @@ const Experience = () => {
                 </p>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

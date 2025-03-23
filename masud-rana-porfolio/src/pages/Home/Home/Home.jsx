@@ -10,7 +10,6 @@ import Gallary from '../../../components/Gallary'
 const Home = () => {
   return (
     <div>
-     
         <Hero></Hero>
         <Experience></Experience>
         <Gallary></Gallary>

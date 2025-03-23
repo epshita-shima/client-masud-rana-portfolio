@@ -2,7 +2,7 @@ import React from 'react'
 
 const Gallary = () => {
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-0">
+    <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-0 h-screen">
     <div className="overflow-hidden">
       <img
         src="https://img1.wsimg.com/isteam/stock/29GnJkb/:/rs=w:1279,m"

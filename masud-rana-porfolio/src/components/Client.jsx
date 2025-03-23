@@ -41,7 +41,7 @@ const Client = () => {
   };
 
   return (
-    <section className="container mx-auto py-12 px-6 lg:max-w-7xl">
+    <section className="container mx-auto py-12 px-6 lg:max-w-7xl h-screen">
       {/* Title with Animation */}
       <motion.h2
         className="text-4xl font-bold text-center text-black mb-10 tracking-wide"
