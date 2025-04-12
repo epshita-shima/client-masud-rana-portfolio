@@ -30,26 +30,31 @@ const Work = () => {
   useEffect(() => {
     setVisibleImageCount(9);
   }, [selectedGraphicsCategory]);
-  
+
   const filteredImages =
     selectedGraphicsCategory === "All"
       ? graphicsGallery
       : graphicsGallery.filter((img) => img.category === selectedGraphicsCategory);
-  
+
   const displayedImages = filteredImages.slice(0, visibleImageCount);
   return (
     <section className="bg-white py-8 px-4">
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold text-[#CB4154] mb-6">My Work</h2>
+        {/* <h2 className="text-3xl font-bold text-[#CB4154] mb-6">My Work</h2> */}
 
         {!showWorkTabs && (
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowWorkTabs(true)}
-            className="bg-[#CB4154] text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-[#a33645] transition"
+            className="bg-white text-black font-semibold px-6 py-3 h-[10dvh,120px]  transition w-full inset-1"
+            style={
+              {
+                boxShadow: "12px 12px 12px rgba(0,0,0,0.1) inset, -10px -10px 10px #CB4154 inset"
+              }
+            }
           >
-            View My Work
+            Click here to see my work
           </motion.button>
         )}
 
@@ -61,21 +66,19 @@ const Work = () => {
           >
             <button
               onClick={() => setActiveTab("graphics")}
-              className={`px-6 py-2 rounded-full font-semibold border transition duration-300 ${
-                activeTab === "graphics"
+              className={`px-6 py-2 rounded-full font-semibold border transition duration-300 ${activeTab === "graphics"
                   ? "bg-[#CB4154] text-white border-[#CB4154] scale-105"
                   : "bg-white text-black border-gray-300 hover:scale-105"
-              }`}
+                }`}
             >
               Graphics Design
             </button>
             <button
               onClick={() => setActiveTab("data")}
-              className={`px-6 py-2 rounded-full font-semibold border transition duration-300 ${
-                activeTab === "data"
+              className={`px-6 py-2 rounded-full font-semibold border transition duration-300 ${activeTab === "data"
                   ? "bg-[#CB4154] text-white border-[#CB4154] scale-105"
                   : "bg-white text-black border-gray-300 hover:scale-105"
-              }`}
+                }`}
             >
               Data Entry
             </button>
@@ -101,9 +104,8 @@ const Work = () => {
                       <li
                         key={index}
                         onClick={() => setSelectedGraphicsCategory(cat)}
-                        className={`cursor-pointer border-b pb-1 transition hover:text-[#CB4154] ${
-                          selectedGraphicsCategory === cat ? "text-[#CB4154] font-semibold" : "text-gray-700"
-                        }`}
+                        className={`cursor-pointer border-b pb-1 transition hover:text-[#CB4154] ${selectedGraphicsCategory === cat ? "text-[#CB4154] font-semibold" : "text-gray-700"
+                          }`}
                       >
                         {cat}
                       </li>
@@ -113,37 +115,37 @@ const Work = () => {
 
                 {/* Gallery Display */}
                 <div className="md:col-span-3">
-  <h3 className="text-xl font-semibold mb-3 text-[#CB4154]">
-    {selectedGraphicsCategory} Work
-  </h3>
+                  <h3 className="text-xl font-semibold mb-3 text-[#CB4154]">
+                    {selectedGraphicsCategory} Work
+                  </h3>
 
-  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-    {displayedImages.map((img, idx) => (
-      <div key={idx} className="overflow-hidden rounded-lg shadow-md">
-        <img
-          src={img.src}
-          alt={`Gallery ${idx + 1}`}
-          className="w-full h-40 object-cover transition-transform duration-300 hover:scale-110"
-        />
-      </div>
-    ))}
-    {displayedImages.length === 0 && (
-      <p className="col-span-full text-gray-600">No images in this category yet.</p>
-    )}
-  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    {displayedImages.map((img, idx) => (
+                      <div key={idx} className="overflow-hidden rounded-lg shadow-md">
+                        <img
+                          src={img.src}
+                          alt={`Gallery ${idx + 1}`}
+                          className="w-full h-40 object-cover transition-transform duration-300 hover:scale-110"
+                        />
+                      </div>
+                    ))}
+                    {displayedImages.length === 0 && (
+                      <p className="col-span-full text-gray-600">No images in this category yet.</p>
+                    )}
+                  </div>
 
-  {/* Show More Button */}
-  {visibleImageCount < filteredImages.length && (
-    <div className="mt-6 text-center">
-      <button
-        onClick={() => setVisibleImageCount((prev) => prev + 8)}
-        className="px-6 py-2 bg-[#CB4154] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
-      >
-        Show More
-      </button>
-    </div>
-  )}
-</div>
+                  {/* Show More Button */}
+                  {visibleImageCount < filteredImages.length && (
+                    <div className="mt-6 text-center">
+                      <button
+                        onClick={() => setVisibleImageCount((prev) => prev + 8)}
+                        className="px-6 py-2 bg-[#CB4154] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
+                      >
+                        Show More
+                      </button>
+                    </div>
+                  )}
+                </div>
               </motion.div>
             )}
 
@@ -162,19 +164,19 @@ const Work = () => {
                 </p>
                 <table className="w-full border border-gray-300 text-sm">
                   <thead>
-                    <tr className="bg-[#CB4154] text-white">
+                    <tr className="bg-[#CB4154] text-white text-center">
                       <th className="border p-2">ID</th>
                       <th className="border p-2">Name</th>
                       <th className="border p-2">Email</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr className="text-black text-center">
                       <td className="border p-2">1</td>
                       <td className="border p-2">Alice Johnson</td>
                       <td className="border p-2">alice@example.com</td>
                     </tr>
-                    <tr>
+                    <tr className="text-black text-center">
                       <td className="border p-2">2</td>
                       <td className="border p-2">David Smith</td>
                       <td className="border p-2">david@example.com</td>
