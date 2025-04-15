@@ -11,48 +11,58 @@ const Blog = () => {
     const data = [
       {
         id: 1,
-        title: "React Hooks 101",
-        author: "Epshita Shima",
-        date: "2024-09-01",
-        summary: "Learn the basics of React hooks...",
-        content: `React Hooks let you use state and other React features without writing a class. 
-They're introduced in React 16.8 and changed the way we write components. 
-This blog explains useState, useEffect, useContext, and more.`
-        ,
-        category: "React"
+        title: 'Sample Blog Title',
+        author: 'Masud Rana',
+        date: '2025-04-01',
+        category: 'Web Design',
+        excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
+        thumbnail: 'https://www.topfivebuzz.com/wp-content/uploads/2020/03/people-2571590_1920.jpg',
+        content: 'Full content here...'
       },
       {
         id: 2,
-        title: "Tailwind Tips",
-        author: "Epshita Shima",
-        date: "2024-09-10",
-        summary: "Quick styling with Tailwind CSS...",
-        content: `Tailwind is a utility-first CSS framework. 
-You can create beautiful interfaces faster without writing custom CSS. 
-Learn how to structure your components using Tailwind classes.`
-        ,
-        category: "Tailwind"
+        title: 'Sample Blog Title',
+        author: 'Masud Rana',
+        date: '2025-04-01',
+        category: 'Web Design',
+        excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
+        thumbnail: 'https://www.topfivebuzz.com/wp-content/uploads/2020/03/people-2571590_1920.jpg',
+        content: 'Full content here...'
       },
       {
         id: 3,
-        title: "Node.js Intro",
-        author: "Epshita Shima",
-        date: "2024-08-15",
-        summary: "Get started with server-side JavaScript...",
-        content: `Node.js is a JavaScript runtime built on Chrome's V8 engine. 
-It's used to build scalable network applications. 
-This article introduces basic concepts like modules, npm, and Express.`
-        ,
-        category: "Node.js"
-      }
+        title: 'Sample Blog Title',
+        author: 'Masud Rana',
+        date: '2025-04-01',
+        category: 'Web Design',
+        excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
+        thumbnail: 'https://www.topfivebuzz.com/wp-content/uploads/2020/03/people-2571590_1920.jpg',
+        content: 'Full content here...'
+      },
     ];
 
     setBlogs(data);
-    setFilteredBlogs(data);
-    const uniqueCategories = ["All", ...new Set(data.map((blog) => blog.category))];
-    setCategories(uniqueCategories);
-  }, []);
 
+  }, []);
+  const popularPosts = [
+    {
+      id: 101,
+      title: 'Top 5 Tips for UI Design',
+      date: '2025-03-25',
+      thumbnail: 'https://www.topfivebuzz.com/wp-content/uploads/2020/03/people-2571590_1920.jpg',
+    },
+    {
+      id: 102,
+      title: 'How to Write Clean React Code',
+      date: '2025-03-10',
+      thumbnail: 'https://www.topfivebuzz.com/wp-content/uploads/2020/03/people-2571590_1920.jpg',
+    },
+  ];
+
+  const recentPosts = [
+    { id: 201, title: 'Building Responsive Layouts in Tailwind' },
+    { id: 202, title: 'Understanding React Hooks in Depth' },
+  ];
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
     if (category === "All") {
@@ -68,78 +78,84 @@ This article introduces basic concepts like modules, npm, and Express.`
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
-      <h1 className="text-3xl font-bold text-center mb-8">📝 Blog Page</h1>
-
-      {/* Categories */}
-      <div className="flex flex-wrap justify-center gap-3 mb-6">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => handleCategorySelect(cat)}
-            className={`px-4 py-2 rounded-full border ${
-              selectedCategory === cat
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-800"
-            } hover:bg-blue-500 hover:text-white transition`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      {/* Blog Cards */}
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
-        {filteredBlogs.map((blog) => (
-          <div
-            key={blog.id}
-            className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition duration-300"
-          >
-            <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
-            <p className="text-sm text-gray-500 mb-2">
-              By {blog.author} • {new Date(blog.date).toLocaleDateString()}
+    <div className="container mx-auto px-4 py-6">
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    {/* Left: Blog Posts */}
+    <div className="lg:col-span-2 space-y-6">
+      {blogs.map((blog) => (
+        <div key={blog.id} className="bg-white shadow border rounded-lg overflow-hidden">
+          <div className="bg-red-600 text-white px-2 py-1 text-sm font-semibold">
+            {new Date(blog.date).toDateString()}
+          </div>
+          <div className="flex flex-col md:flex-row p-4 gap-4">
+            <img src={blog.thumbnail} alt="Thumbnail" className="w-full md:w-40 h-28 object-cover rounded-md" />
+            <div>
+              <h2 className="text-xl font-bold text-[#CB4154]">{blog.title}</h2>
+              <p className="text-gray-500 text-sm mb-2">
+                By {blog.author} • {blog.category}
+              </p>
+              <p className="text-gray-700 text-sm line-clamp-3">{blog.excerpt}</p>
+              <button
+                onClick={() => openModal(blog)}
+                className="mt-2 inline-block bg-[#CB4154] text-white text-sm px-3 py-1 rounded hover:bg-[#b13148]"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <dialog id="blogModal" className="modal">
+      <div className="modal-box max-w-4xl bg-[#fefcf6] shadow-xl border rounded-lg max-h-[90vh] overflow-auto">
+        {selectedBlog && (
+          <>
+            <h3 className="text-2xl font-bold mb-2 text-center text-[#CB4154]">{selectedBlog.title}</h3>
+            <p className="text-sm text-center text-gray-500 mb-4">
+              By {selectedBlog.author} • {new Date(selectedBlog.date).toLocaleDateString()}
             </p>
-            <span className="inline-block text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded mb-3">
-              {blog.category}
-            </span>
-            <p className="text-gray-700">{blog.summary}</p>
-            <button
-              onClick={() => openModal(blog)}
-              className="inline-block mt-4 text-blue-600 hover:underline"
-            >
-              Read more →
-            </button>
+            <div className="prose max-w-none text-justify px-2 text-gray-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo laborum vitae aliquam natus optio placeat labore tempora temporibus harum, doloribus vero? Odit blanditiis beatae quidem id nostrum laborum ipsum quibusdam facilis, dolorem assumenda voluptas quas expedita ad qui illum. Voluptatibus illo necessitatibus adipisci officiis repellendus saepe illum mollitia expedita ipsum repudiandae vitae ipsa, a nemo assumenda deleniti, quo earum veniam nihil ad aliquam doloribus similique dolores maiores reprehenderit! Itaque excepturi distinctio deleniti perferendis incidunt molestias laborum nostrum adipisci saepe repellat iure ea maiores quaerat est vel sed blanditiis pariatur quam nesciunt, recusandae eligendi doloremque accusamus? Dolore sequi rem aliquam architecto?</div>
+            <div className="modal-action">
+              <form method="dialog">
+                <button className="btn btn-outline bg-[#CB4154] text-white">Close</button>
+              </form>
+            </div>
+          </>
+        )}
+      </div>
+    </dialog>
+    {/* Right: Sidebar */}
+    <div className="space-y-6">
+      {/* Popular Posts */}
+      <div className="bg-white shadow border rounded-lg p-4">
+        <h3 className="text-lg font-bold mb-3 border-b pb-2 text-[#CB4154]">Popular Posts</h3>
+        {popularPosts.map((post) => (
+          <div key={post.id} className="flex gap-3 mb-4">
+            <img src={post.thumbnail} alt="" className="w-16 h-16 object-cover rounded-md" />
+            <div>
+              <h4 className="text-sm font-semibold text-[#CB4154]">{post.title}</h4>
+              <p className="text-xs text-gray-500">{new Date(post.date).toLocaleDateString()}</p>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Modal */}
-      <dialog id="blogModal" className="modal">
-        <div className="modal-box w-11/12 max-w-4xl bg-[#fefcf6] border-2 border-gray-300 shadow-lg rounded-xl overflow-auto max-h-[90vh]">
-          {selectedBlog && (
-            <>
-              <h3 className="font-bold text-2xl border-b pb-2 mb-4 text-center">
-                {selectedBlog.title}
-              </h3>
-              <p className="text-sm text-center text-gray-500 mb-6">
-                By {selectedBlog.author} • {new Date(selectedBlog.date).toLocaleDateString()}
-              </p>
-              <div className="prose max-w-none px-2 leading-relaxed text-justify">
-                {selectedBlog.content.split("\n").map((line, idx) => (
-                  <p key={idx}>{line}</p>
-                ))}
-              </div>
-              <div className="modal-action mt-6">
-                <form method="dialog">
-                  <button className="btn btn-outline">Close</button>
-                </form>
-              </div>
-            </>
-          )}
-        </div>
-      </dialog>
+      {/* Recent Posts */}
+      <div className="bg-white shadow border rounded-lg p-4">
+        <h3 className="text-lg font-bold mb-3 border-b pb-2 text-[#CB4154]">Recent Posts</h3>
+        {recentPosts.map((post) => (
+          <p key={post.id} className="text-sm text-gray-700 mb-2 hover:text-[#CB4154] cursor-pointer">
+            {post.title}
+          </p>
+        ))}
+      </div>
     </div>
+  </div>
+</div>
+
   );
+  
 };
 
 export default Blog;
