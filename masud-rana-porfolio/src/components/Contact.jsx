@@ -40,7 +40,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="container mx-auto pt-12 px-4 h-screen">
+    <section className="container mx-auto pt-8 px-4 h-screen">
       {/* Title Section */}
       <motion.div
         className="text-center mb-8"
@@ -147,8 +147,6 @@ const Contact = () => {
                 </motion.button>
               </div>
             </Form>
-            
-            
             )}
           </Formik>
         </motion.div>
