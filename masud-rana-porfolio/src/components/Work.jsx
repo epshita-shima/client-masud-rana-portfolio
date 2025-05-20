@@ -242,7 +242,6 @@ const Work = () => {
         <dialog id="graphicsModal" className="modal modal-open">
           <div className="modal-box w-[80%] h-[90%] max-w-none relative p-6 overflow-y-auto">
 
-
             <button
               className="btn btn-sm btn-circle btn-ghost absolute right-6 top-6 text-xl z-10"
               onClick={() => setOpenGraphicsModal(false)}
@@ -250,9 +249,7 @@ const Work = () => {
               ✕
             </button>
 
-
             <h3 className="text-2xl font-bold text-center text-[#CB4154] mb-4">Graphics Sample Work</h3>
-
 
             <motion.div
               key="graphics"
@@ -332,7 +329,6 @@ const Work = () => {
           <div className="modal-box">
             <h3 className="font-bold text-lg">Data Entry Projects</h3>
             <p className="py-4">
-              {/* Replace this with real project info */}
               ✅ Excel Reports, ✅ CRM Input, ✅ Survey Forms Entry
             </p>
             <div className="modal-action">

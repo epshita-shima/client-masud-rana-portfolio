@@ -85,7 +85,7 @@ const Blog = () => {
     <div className="lg:col-span-2 space-y-6">
       {blogs.map((blog) => (
         <div key={blog.id} className="bg-white shadow border rounded-lg overflow-hidden">
-          <div className="bg-red-600 text-white px-2 py-1 text-sm font-semibold">
+          <div className="bg-gray-300 text-white px-2 py-1 text-sm font-semibold">
             {new Date(blog.date).toDateString()}
           </div>
           <div className="flex flex-col md:flex-row p-4 gap-4">
