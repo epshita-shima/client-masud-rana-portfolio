@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Profile from "../../assets/image/profile_pic/Masud_Rana.jpg"
 const Article = () => {
   return (
      <div className="max-w-4xl mx-auto px-4 py-10 text-gray-800">
@@ -42,7 +42,7 @@ const Article = () => {
 
       {/* Author Bio */}
       <div className="mt-10 border-t pt-6 flex items-center gap-4">
-        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?cs=srgb&dl=pexels-chloe-1043471.jpg&fm=jpg" className="w-12 h-12 rounded-full" />
+        <img src={Profile} className="w-12 h-12 rounded-full" />
         <div>
           <p className="text-sm font-bold">Masud Rana</p>
           <p className="text-sm text-gray-500">Graphics Designer</p>

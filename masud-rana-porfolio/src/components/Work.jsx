@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import logo1 from '../assets/image/logo_design/aesthetic_stitch.jpg'
+import logo2 from '../assets/image/logo_design/aurelian_spa.jpg'
+import logo3 from '../assets/image/logo_design/grey_vouge.jpg'
+import logo4 from '../assets/image/logo_design/lady_j.jpg'
+import logo5 from '../assets/image/logo_design/mauvefin.jpg'
+import logo6 from '../assets/image/logo_design/olive_june.jpg'
+import logo7 from '../assets/image/logo_design/skydusk.jpg'
+import logo8 from '../assets/image/logo_design/strivex.jpg'
+import logo9 from '../assets/image/logo_design/time_machine.jpg'
 const Work = () => {
   // const [showWorkTabs, setShowWorkTabs] = useState(false);
   // const [activeTab, setActiveTab] = useState("");
@@ -10,7 +18,15 @@ const Work = () => {
 
   // // Sample categorized gallery images
   const graphicsGallery = [
-    { src: "https://img1.wsimg.com/isteam/stock/29GnJkb/:/rs=w:600,h:400", category: "Logo Design" },
+    { src: `${logo1}`, category: "Logo Design" },
+    { src: `${logo2}`, category: "Logo Design" },
+    { src: `${logo3}`, category: "Logo Design" },
+    { src: `${logo4}`, category: "Logo Design" },
+    { src: `${logo5}`, category: "Logo Design" },
+    { src: `${logo6}`, category: "Logo Design" },
+    { src: `${logo7}`, category: "Logo Design" },
+    { src: `${logo8}`, category: "Logo Design" },
+    { src: `${logo9}`, category: "Logo Design" },
     { src: "https://img1.wsimg.com/isteam/stock/yzxOwJx/:/rs=w:600,h:400", category: "Logo Design" },
     { src: "https://img1.wsimg.com/isteam/stock/9bNZy4A/:/rs=w:600,h:400", category: "Banner Design" },
     { src: "https://img1.wsimg.com/isteam/stock/NBq5Qj4/:/rs=w:600,h:400", category: "Poster Design" },
@@ -197,7 +213,7 @@ const Work = () => {
   return (
     <div className="flex items-center justify-center bg-gray-100 lg:py-48 md:py-60 sm:py-60">
       <button
-        className="btn btn-primary"
+        className="px-6 py-2 bg-[#CB4154] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
         onClick={() => setOpenMainModal(true)}
       >
         Click here to see my work
@@ -210,7 +226,7 @@ const Work = () => {
             <h3 className="font-bold text-lg text-center mb-4">Select Work Category</h3>
             <div className="flex justify-around">
               <button
-                className="btn btn-secondary"
+              className="px-6 py-2 bg-[#CB4154] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
                 onClick={() => {
                   setOpenGraphicsModal(true);
                   setOpenMainModal(false);
@@ -219,7 +235,7 @@ const Work = () => {
                 Graphics Design
               </button>
               <button
-                className="btn btn-accent"
+                className="btn btn-secondary rounded-full"
                 onClick={() => {
                   setOpenDataEntryModal(true);
                   setOpenMainModal(false);

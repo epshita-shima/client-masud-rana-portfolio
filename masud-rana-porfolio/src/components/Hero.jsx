@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import Profile from "../assets/image/profile_pic/Masud_Rana.jpg"
 const Hero = () => {
   return (
     <div className="hero h-screen container bg-white text-black  lg:p-8 mx-auto ">
@@ -47,7 +47,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.button 
-            className="btn bg-[#CB4154] border border-[#CB4154]"
+            className="btn bg-[#CB4154] border border-[#CB4154] rounded-full text-white"
             whileHover={{ scale: 1.1 }} // Scale up on hover
             whileTap={{ scale: 0.9 }} // Scale down on click
             transition={{ type: "spring", stiffness: 300 }}
