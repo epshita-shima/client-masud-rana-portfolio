@@ -7,6 +7,7 @@ import Support from '../components/Support'
 import Work from '../components/Work'
 import { path } from 'framer-motion/client'
 import Blog from '../components/Blog'
+import Article from '../pages/Article/Article'
 
 
 export const router = createBrowserRouter([
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>
+      },
+      {
+        path: '/article',
+        element: <Article></Article>
       }
 
     ]

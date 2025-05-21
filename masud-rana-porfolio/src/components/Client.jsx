@@ -1,7 +1,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 import client1 from "../assets/image/client-1.jpg";
 import client2 from "../assets/image/client-2.jpg";
@@ -28,7 +27,6 @@ const Client = () => {
     },
   ];
 
-  // Slick carousel settings
   const settings = {
     infinite: true,
     speed: 500,
@@ -41,8 +39,7 @@ const Client = () => {
   };
 
   return (
-    <section className="container mx-auto py-12 px-6 lg:max-w-7xl h-screen">
-      {/* Title with Animation */}
+    <section className="container mx-auto py-24 px-8 lg:max-w-7xl h-screen">
       <motion.h2
         className="text-4xl font-bold text-center text-black mb-10 tracking-wide"
         initial={{ opacity: 0, y: -30 }}
@@ -64,7 +61,6 @@ const Client = () => {
               // animate={{ opacity: 1, y: 0 }}
               // transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              {/* Client Image */}
               <div className="flex justify-center">
                 <img
                   src={client.img}
@@ -72,11 +68,8 @@ const Client = () => {
                   className="w-32 h-32 md:w-28 md:h-28 rounded-full shadow-md border-2 border-blue-200 transform transition duration-300 hover:scale-110"
                 />
               </div>
-
-              {/* Country Name */}
               <h3 className="text-xl text-black font-semibold mt-4">{client.country}</h3>
 
-              {/* Feedback */}
               <p className="text-gray-600 mt-4 text-lg">{client.feedback}</p>
             </motion.div>
           ))}
