@@ -139,7 +139,7 @@ const Contact = () => {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-[40%] bg-[#CB4154] hover:bg-[#CB4154] text-white font-semibold p-3 rounded-xl transition duration-300"
+                  className="w-full sm:w-[40%] bg-[#940000] hover:bg-[#940000] text-white font-semibold p-3 rounded-xl transition duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

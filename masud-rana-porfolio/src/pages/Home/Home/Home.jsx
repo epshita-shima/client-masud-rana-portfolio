@@ -6,13 +6,16 @@ import Footer from '../../../components/Footer'
 import Contact from '../../../components/Contact'
 import Experience from '../../../components/Experience'
 import Gallary from '../../../components/Gallary'
-
+import WorkGalary from '../../../components/WorkGalary'
+import './Home.css'
 const Home = () => {
+
   return (
-    <div>
+    <div className='bg-offwhite-orange-shimmer'>
         <Hero></Hero>
         <Experience></Experience>
-        <Gallary></Gallary>
+        {/* <Gallary></Gallary> */}
+        <WorkGalary></WorkGalary>
         <Client></Client>
        <Contact></Contact>
     </div>

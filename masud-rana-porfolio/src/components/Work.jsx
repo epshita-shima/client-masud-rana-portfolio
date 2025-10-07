@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import logo1 from '../assets/image/logo_design/aesthetic_stitch.jpg'
 import logo2 from '../assets/image/logo_design/aurelian_spa.jpg'
 import logo3 from '../assets/image/logo_design/grey_vouge.jpg'
@@ -56,7 +56,7 @@ const Work = () => {
   // return (
   //   <section className="bg-white py-8 px-4">
   //     <div className="container mx-auto text-center">
-  //       {/* <h2 className="text-3xl font-bold text-[#CB4154] mb-6">My Work</h2> */}
+  //       {/* <h2 className="text-3xl font-bold text-[#940000] mb-6">My Work</h2> */}
 
   //       {!showWorkTabs && (
   //         <motion.button
@@ -66,7 +66,7 @@ const Work = () => {
   //           className="bg-white text-black font-semibold px-6 py-3 h-[10dvh,120px]  transition w-full inset-1"
   //           style={
   //             {
-  //               boxShadow: "12px 12px 12px rgba(0,0,0,0.1) inset, -10px -10px 10px #CB4154 inset"
+  //               boxShadow: "12px 12px 12px rgba(0,0,0,0.1) inset, -10px -10px 10px #940000 inset"
   //             }
   //           }
   //         >
@@ -83,7 +83,7 @@ const Work = () => {
   //           <button
   //             onClick={() => setActiveTab("graphics")}
   //             className={`px-6 py-2 rounded-full font-semibold border transition duration-300 ${activeTab === "graphics"
-  //                 ? "bg-[#CB4154] text-white border-[#CB4154] scale-105"
+  //                 ? "bg-[#940000] text-white border-[#940000] scale-105"
   //                 : "bg-white text-black border-gray-300 hover:scale-105"
   //               }`}
   //           >
@@ -92,7 +92,7 @@ const Work = () => {
   //           <button
   //             onClick={() => setActiveTab("data")}
   //             className={`px-6 py-2 rounded-full font-semibold border transition duration-300 ${activeTab === "data"
-  //                 ? "bg-[#CB4154] text-white border-[#CB4154] scale-105"
+  //                 ? "bg-[#940000] text-white border-[#940000] scale-105"
   //                 : "bg-white text-black border-gray-300 hover:scale-105"
   //               }`}
   //           >
@@ -114,13 +114,13 @@ const Work = () => {
   //             >
   //               {/* Category List */}
   //               <div className="md:col-span-1">
-  //                 <h4 className="text-lg font-bold mb-3 text-[#CB4154]">Graphics Categories</h4>
+  //                 <h4 className="text-lg font-bold mb-3 text-[#940000]">Graphics Categories</h4>
   //                 <ul className="space-y-2">
   //                   {graphicsCategories.map((cat, index) => (
   //                     <li
   //                       key={index}
   //                       onClick={() => setSelectedGraphicsCategory(cat)}
-  //                       className={`cursor-pointer border-b pb-1 transition hover:text-[#CB4154] ${selectedGraphicsCategory === cat ? "text-[#CB4154] font-semibold" : "text-gray-700"
+  //                       className={`cursor-pointer border-b pb-1 transition hover:text-[#940000] ${selectedGraphicsCategory === cat ? "text-[#940000] font-semibold" : "text-gray-700"
   //                         }`}
   //                     >
   //                       {cat}
@@ -131,7 +131,7 @@ const Work = () => {
 
   //               {/* Gallery Display */}
   //               <div className="md:col-span-3">
-  //                 <h3 className="text-xl font-semibold mb-3 text-[#CB4154]">
+  //                 <h3 className="text-xl font-semibold mb-3 text-[#940000]">
   //                   {selectedGraphicsCategory} Work
   //                 </h3>
 
@@ -155,7 +155,7 @@ const Work = () => {
   //                   <div className="mt-6 text-center">
   //                     <button
   //                       onClick={() => setVisibleImageCount((prev) => prev + 8)}
-  //                       className="px-6 py-2 bg-[#CB4154] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
+  //                       className="px-6 py-2 bg-[#940000] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
   //                     >
   //                       Show More
   //                     </button>
@@ -174,13 +174,13 @@ const Work = () => {
   //               transition={{ duration: 0.5 }}
   //               className="bg-gray-100 p-6 rounded-xl shadow-md text-left"
   //             >
-  //               <h3 className="text-xl font-semibold mb-3 text-[#CB4154]">Data Entry Work</h3>
+  //               <h3 className="text-xl font-semibold mb-3 text-[#940000]">Data Entry Work</h3>
   //               <p className="text-gray-700 mb-4">
   //                 Sample data entry tasks including spreadsheets, client databases and more.
   //               </p>
   //               <table className="w-full border border-gray-300 text-sm">
   //                 <thead>
-  //                   <tr className="bg-[#CB4154] text-white text-center">
+  //                   <tr className="bg-[#940000] text-white text-center">
   //                     <th className="border p-2">ID</th>
   //                     <th className="border p-2">Name</th>
   //                     <th className="border p-2">Email</th>
@@ -206,19 +206,19 @@ const Work = () => {
   //     </div>
   //   </section>
   // );
+
   const [openMainModal, setOpenMainModal] = useState(false);
   const [openGraphicsModal, setOpenGraphicsModal] = useState(false);
   const [openDataEntryModal, setOpenDataEntryModal] = useState(false);
 
   return (
-    <div className="flex items-center justify-center bg-gray-100 lg:py-48 md:py-60 sm:py-60">
-      <button
-        className="px-6 py-2 bg-[#CB4154] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
-        onClick={() => setOpenMainModal(true)}
-      >
-        Click here to see my work
-      </button>
-
+    <div className="flex items-center justify-center bg-gray-100 py-24 min-h-screen">
+  <button
+    className="px-6 py-3 bg-[#940000] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
+    onClick={() => setOpenMainModal(true)}
+  >
+    Click here to see my work
+  </button>
 
       {openMainModal && (
         <dialog id="mainModal" className="modal modal-open">
@@ -226,7 +226,7 @@ const Work = () => {
             <h3 className="font-bold text-lg text-center mb-4">Select Work Category</h3>
             <div className="flex justify-around">
               <button
-              className="px-6 py-2 bg-[#CB4154] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
+              className="px-6 py-2 bg-[#940000] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
                 onClick={() => {
                   setOpenGraphicsModal(true);
                   setOpenMainModal(false);
@@ -253,7 +253,6 @@ const Work = () => {
         </dialog>
       )}
 
-
       {openGraphicsModal && (
         <dialog id="graphicsModal" className="modal modal-open">
           <div className="modal-box w-[80%] h-[90%] max-w-none relative p-6 overflow-y-auto">
@@ -265,7 +264,7 @@ const Work = () => {
               ✕
             </button>
 
-            <h3 className="text-2xl font-bold text-center text-[#CB4154] mb-4">Graphics Sample Work</h3>
+            <h3 className="text-2xl font-bold text-center text-[#940000] mb-4">Graphics Sample Work</h3>
 
             <motion.div
               key="graphics"
@@ -277,13 +276,13 @@ const Work = () => {
             >
               {/* Sidebar Categories */}
               <div className="md:col-span-1">
-                <h4 className="text-lg font-bold mb-3 text-[#CB4154]">Graphics Categories</h4>
+                <h4 className="text-lg font-bold mb-3 text-[#940000]">Graphics Categories</h4>
                 <ul className="space-y-2">
                   {graphicsCategories.map((cat, index) => (
                     <li
                       key={index}
                       onClick={() => setSelectedGraphicsCategory(cat)}
-                      className={`cursor-pointer border-b pb-1 transition hover:text-[#CB4154] ${selectedGraphicsCategory === cat ? "text-[#CB4154] font-semibold" : "text-gray-700"}`}
+                      className={`cursor-pointer border-b pb-1 transition hover:text-[#940000] ${selectedGraphicsCategory === cat ? "text-[#940000] font-semibold" : "text-gray-700"}`}
                     >
                       {cat}
                     </li>
@@ -293,7 +292,7 @@ const Work = () => {
 
               {/* Gallery Display */}
               <div className="md:col-span-3">
-                <h3 className="text-xl font-semibold mb-3 text-[#CB4154]">
+                <h3 className="text-xl font-semibold mb-3 text-[#940000]">
                   {selectedGraphicsCategory} Work
                 </h3>
 
@@ -317,7 +316,7 @@ const Work = () => {
                   <div className="mt-6 text-center">
                     <button
                       onClick={() => setVisibleImageCount((prev) => prev + 8)}
-                      className="px-6 py-2 bg-[#CB4154] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
+                      className="px-6 py-2 bg-[#940000] text-white font-semibold rounded-full shadow hover:bg-[#a33645] transition"
                     >
                       Show More
                     </button>

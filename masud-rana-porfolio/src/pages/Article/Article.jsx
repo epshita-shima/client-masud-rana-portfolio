@@ -7,7 +7,7 @@ const Article = () => {
       <img src="https://i.pinimg.com/originals/ac/dc/67/acdc67a70b2ad423d9601d8adf6144b5.jpg" alt="Cover" className="rounded-xl mb-6 w-full object-cover h-64" />
 
       {/* Title */}
-      <h1 className="text-4xl font-bold text-[#CB4154] mb-2">Designing With Purpose</h1>
+      <h1 className="text-4xl font-bold text-[#940000] mb-2">Designing With Purpose</h1>
       <p className="text-sm text-gray-500 mb-4">By Masud Rana • May 20, 2025 • 4 min read</p>
 
       {/* Article Content */}
@@ -30,14 +30,14 @@ const Article = () => {
 
       {/* Tags */}
       <div className="mt-8 flex gap-2">
-        <span className="px-3 py-1 bg-[#CB4154] text-white rounded-full text-sm">#branding</span>
+        <span className="px-3 py-1 bg-[#940000] text-white rounded-full text-sm">#branding</span>
         <span className="px-3 py-1 bg-gray-200 rounded-full text-sm">#graphicdesign</span>
       </div>
 
       {/* Social Share */}
       <div className="mt-6 flex gap-4">
-        <button className="text-[#CB4154]">Share on Twiter</button>
-        <button className="text-[#CB4154]">Share on LinkedIn</button>
+        <button className="text-[#940000]">Share on Twiter</button>
+        <button className="text-[#940000]">Share on LinkedIn</button>
       </div>
 
       {/* Author Bio */}

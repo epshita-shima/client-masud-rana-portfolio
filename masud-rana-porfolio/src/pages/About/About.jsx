@@ -28,7 +28,7 @@ const About = () => {
         >
           <h2 className="text-4xl font-bold text-black mb-4">About Me</h2>
           <p className="text-lg text-gray-600 text-justify">
-            Hi, I'm <span className="text-[#CB4154] font-semibold">Masud Rana</span>, With a keen eye for design and a passion for data, I blend creativity with precision. As a <strong>Graphic Designer and Data Specialist</strong> , I craft visually compelling designs while transforming complex data into clear, actionable insights. Whether it’s branding, data visualization, or strategic analytics, I merge aesthetics with intelligence to create meaningful and impactful solutions.
+            Hi, I'm <span className="text-[#940000] font-semibold">Masud Rana</span>, With a keen eye for design and a passion for data, I blend creativity with precision. As a <strong>Graphic Designer and Data Specialist</strong> , I craft visually compelling designs while transforming complex data into clear, actionable insights. Whether it’s branding, data visualization, or strategic analytics, I merge aesthetics with intelligence to create meaningful and impactful solutions.
           </p>
 
           {/* Buttons with Hover Animation */}
@@ -41,14 +41,14 @@ const About = () => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="btn bg-[#CB4154] border-[#CB4154]"
+              className="btn bg-[#940000] border-[#940000]"
             >
               Hire Me
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="btn btn-outline text-[#CB4154] hover:bg-[#CB4154] hover:text-white hover:border-0"
+              className="btn btn-outline text-[#940000] hover:bg-[#940000] hover:text-white hover:border-0"
             >
               Download Resume
             </motion.button>
@@ -56,7 +56,7 @@ const About = () => {
         </motion.div>
       </div>
       {/* <div>
-        <h3 className="text-[#CB4154] text-2xl font-normal tracking-widest">About Masud Rana</h3>
+        <h3 className="text-[#940000] text-2xl font-normal tracking-widest">About Masud Rana</h3>
         <div class="grid grid-cols-12 gap-4">
           <div class="col-span-8">
             <p className="text-2xl text-black mb-8">Global Growth Advisor | Strategic Investor | Leadership Mentor</p>
@@ -87,7 +87,7 @@ const About = () => {
           </div>
           <div class="col-span-4 ml-8">
             <div className="bg-[#FBF1F2] h-44 w-64 flex items-center justify-center">
-              <button className="btn bg-[#CB4154] text-white p-4  w-42 border-none h-auto tracking-wider mt-8">
+              <button className="btn bg-[#940000] text-white p-4  w-42 border-none h-auto tracking-wider mt-8">
                 SHEDULE A STRATEGIC CONSULTATION
               </button>
             </div>
@@ -98,7 +98,7 @@ const About = () => {
 
       <div className="px-4 md:px-12 lg:px-20">
         {/* Section Title */}
-        <h3 className="text-[#CB4154] text-2xl font-normal tracking-widest animate__animated animate__fadeInUp">
+        <h3 className="text-[#940000] text-2xl font-normal tracking-widest animate__animated animate__fadeInUp">
           About Masud Rana
         </h3>
 
@@ -143,7 +143,7 @@ const About = () => {
           {/* Right Side: Button Section */}
           <div className="md:col-span-4 flex md:justify-center animate__animated animate__fadeInRight">
             <div className="bg-[#FBF1F2] h-44 w-full md:w-64 flex items-center justify-center rounded-lg shadow-md">
-              <button className="btn bg-[#CB4154] text-white p-4 w-52 md:w-42 border-none h-auto tracking-wider mt-8 
+              <button className="btn bg-[#940000] text-white p-4 w-52 md:w-42 border-none h-auto tracking-wider mt-8 
               hover:scale-105 transition-transform duration-300 ease-in-out">
                 SHEDULE A STRATEGIC CONSULTATION
               </button>

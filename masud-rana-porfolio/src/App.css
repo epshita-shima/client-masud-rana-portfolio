@@ -1,0 +1,17 @@
+body {
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #00ff00, #00bfff, #8a2be2, #ff1493, #ff0000);
+  background-size: 400% 400%;
+  animation: glitter 10s ease infinite;
+}
+
+@keyframes glitter {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
