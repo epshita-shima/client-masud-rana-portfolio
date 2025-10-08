@@ -6,7 +6,7 @@ import StickySocialMedia from '../pages/Common/StickySocialMedia'
 
 const Main = () => {
   return (
-    <div className='bg-white'>
+    <div className=''>
       <StickySocialMedia></StickySocialMedia>
        <Header></Header>
         <Outlet></Outlet>

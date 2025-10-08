@@ -10,6 +10,7 @@ import logo6 from "../assets/image/logo_design/olive_june.jpg";
 import logo7 from "../assets/image/logo_design/skydusk.jpg";
 import logo8 from "../assets/image/logo_design/strivex.jpg";
 import logo9 from "../assets/image/logo_design/time_machine.jpg";
+import logo10 from "../assets/image/logo_design/logo10.png";
 
 const allWorks = [
   { id: 1, category: "logo", img: logo1 },
