@@ -2,8 +2,8 @@ import React from "react";
 
 const Experience = () => {
   return (
-    <div className="  p-2 mb-24">
-      <div className="container mx-auto px-4">
+    <div className="">
+      <div className="container mx-auto">
         <div className="w-full bg-[#940000] h-auto">
           <div className="flex flex-col sm:flex-row sm:justify-between">
             {/* Image First on small screens */}
@@ -18,7 +18,7 @@ const Experience = () => {
             {/* Text Content */}
             <div className="w-full sm:w-[50%] pt-6 sm:pt-16 pl-4 sm:pl-8 order-2 sm:order-1 pr-4">
               <div className="mb-4">
-                <h2 className="text-3xl font-bold text-[#FFD700]">
+                <h2 className="text-3xl font-bold text-white">
                   Experience
                 </h2>
                 <p className="mt-4 text-justify text-white text-lg ">
@@ -32,7 +32,7 @@ const Experience = () => {
               </div>
 
               <div className="mb-4">
-                <h2 className="text-3xl font-bold text-[#FFD700]">
+                <h2 className="text-3xl font-bold text-white">
                   Why Partner With Me
                 </h2>
                 <p className="text-justify text-lg mt-4 text-white">
@@ -46,7 +46,7 @@ const Experience = () => {
               </div>
 
               <div className="mb-4">
-                <h2 className="text-3xl font-bold text-[#FFD700]">
+                <h2 className="text-3xl font-bold text-white">
                   Fiverr and Freelancer
                 </h2>
                 <p className="text-justify text-lg mt-4 text-white">
@@ -60,7 +60,7 @@ const Experience = () => {
               </div>
 
               <div className="mb-4">
-                <h2 className="text-3xl font-bold text-[#FFD700]">
+                <h2 className="text-3xl font-bold text-white">
                   Monogram logo design
                 </h2>
                 <p className="text-justify text-lg mt-4 text-white">
@@ -74,12 +74,12 @@ const Experience = () => {
               </div>
 
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-[#FFD700] mb-4">
+                <h2 className="text-3xl font-bold text-white mb-4">
                   What Sets My Work Apart?
                 </h2>
                 <ul className="list-disc list-inside space-y-4 text-white text-lg text-justify">
                   <li>
-                    <span className="font-bold text-[#FFD700]">
+                    <span className="font-bold text-white">
                       Deep Industry Focus:
                     </span>{" "}
                     Fashion. Luxury. Urban. Beauty. These aren't just words to
@@ -88,7 +88,7 @@ const Experience = () => {
                     precision.
                   </li>
                   <li>
-                    <span className="font-bold text-[#FFD700]">
+                    <span className="font-bold text-white">
                       Detail-Driven Design:
                     </span>{" "}
                     I believe a logo is more than just a symbol. It's an
@@ -96,7 +96,7 @@ const Experience = () => {
                     designed for both digital and print use.
                   </li>
                   <li>
-                    <span className="font-bold text-[#FFD700]">
+                    <span className="font-bold text-white">
                       Client-Centric Process:
                     </span>{" "}
                     From mood boards to final delivery, I maintain transparent
@@ -104,7 +104,7 @@ const Experience = () => {
                     customers — they’re creative partners.
                   </li>
                   <li>
-                    <span className="font-bold text-[#FFD700]">
+                    <span className="font-bold text-white">
                       Global Reach, Personalized Touch:
                     </span>{" "}
                     Working with clients across continents has helped me develop

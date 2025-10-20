@@ -3,8 +3,8 @@ import { div } from "framer-motion/client";
 
 const About = () => {
   return (
-    <div className="bg-offwhite-orange-shimmer">
-      <div className="container mx-auto mb-4">
+    <div className="bg-white">
+      <div className="container mx-auto pb-12">
         <div className=" flex flex-col lg:flex-row items-center justify-center  py-12">
           {/* Image Section with Animation */}
           <motion.div
@@ -145,57 +145,44 @@ const About = () => {
                 boundaries of creativity, while staying rooted in the core
                 values that define my work: authenticity, clarity, and impact.
               </p>
+              <p className="text-lg text-[#2C2C2C] text-justify">
+                Ultimately, my vision is to leave a legacy — not just of beautiful logos, but of <strong>brands transformed, dreams visualized,</strong> and <strong>stories remembered</strong> through the power of design.
+              </p>
               {/* Career Highlights */}
-              <h3 className="text-black text-2xl mt-6 mb-4">
-                Career Highlights:
-              </h3>
+              <p className="text-2xl text-black mb-6 mt-6">
+               Mission | Building Identities | Inspiring Impact
+              </p>
+              <p className="text-lg text-[#2C2C2C] text-justify">
+                My mission as a logo designer is rooted in a deep commitment to <strong>transforming ideas into iconic visual identities</strong> that stand the test of time. Since 2015, I have dedicated myself to not just creating designs — but building <strong>powerful brand symbols</strong> that tell stories, build trust, and inspire action.
+              </p>
+              <p className="text-lg text-[#2C2C2C] text-justify">
+                I believe that every brand, whether a small startup or a global enterprise, deserves a logo that reflects its <strong>authentic personality, core values, and unique purpose</strong>. My mission is to deliver designs that go beyond the surface — visuals that carry meaning, evoke emotion, and communicate clearly across cultures, platforms, and generations.
+              </p>
+              <p className="text-lg text-[#2C2C2C] text-justify">
+                With each project, I aim to provide:
+              </p>
               <ul className="text-gray-600 text-lg list-disc pl-5">
                 <li>
-                  Founder of an international business operating across 21
-                  countries
+                 <strong>Creative Excellence:</strong> To craft visually striking logos that are both innovative and strategically aligned with the brand’s goals.
                 </li>
                 <li>
-                  Advisory Board Member for high-growth companies and scale-ups
+                  <strong>Client-Centric Collaboration:</strong> To truly listen, understand, and involve my clients throughout the design journey, turning their ideas into a visual language they can proudly own.
                 </li>
                 <li>
-                  UK Ambassador for Tech Nordic Advocates, bridging
-                  international tech ecosystems
+                 	<strong>Consistency & Professionalism:</strong> To maintain a high standard of reliability, clear communication, and timely delivery — earning the trust and satisfaction of every client I work with.
                 </li>
                 <li>
-                  Former City lawyer specializing in IP, commercial, and
-                  branding law
+                  <strong>Global Perspective:</strong> To serve a diverse, international clientele with sensitivity to cultural nuance and an understanding of global design trends.
                 </li>
-                <li>Active angel investor and tech startup mentor</li>
-                <li>Female Business Owner of the Year recipient</li>
-                <li>
-                  Successful Dragons' Den participant and regular awards judge
-                </li>
-                <li>Cranfield School of Management BGP alumna</li>
+                <li><strong>Continuous Growth:</strong>	 To evolve with the ever-changing world of design — staying inspired, mastering new tools and techniques, and pushing the limits of my creative boundaries.</li>
+              <p className="text-lg text-[#2C2C2C] text-justify">
+                At the heart of my mission is a belief: <strong>a great logo is the foundation of a great brand</strong>. It’s the first impression, the lasting memory, and the symbol that clients, customers, and communities associate with a business. My mission is to create that symbol — one logo at a time — with passion, precision, and purpose.
+              </p>
+              <p className="text-lg text-[#2C2C2C] text-justify">Through every project, I strive not just to meet expectations, but to exceed them. To deliver work that is not only visually outstanding but also strategically meaningful — work that helps brands <strong>stand out, grow with confidence, and leave a lasting mark</strong> in their industry.</p>
               </ul>
 
-              {/* Paragraphs */}
-              <p className="text-lg text-gray-600 text-justify mt-6">
-                My journey from corporate law to entrepreneurship and global
-                advisory has given me unique insights into scaling businesses
-                internationally. I've built and scaled my own international
-                business, advised global corporations including a $148 billion
-                turnover brand, and now help ambitious companies prepare for
-                international growth and investment.
-              </p>
 
-              <p className="text-lg text-gray-600 text-justify mt-4">
-                As an advisory board member, I provide strategic guidance to
-                companies navigating critical growth phases, drawing on my
-                diverse experience across international markets, technology, and
-                investment.
-              </p>
-
-              <p className="text-lg text-justify text-gray-600 mt-4">
-                As a speaker and consultant, I share practical wisdom on global
-                expansion, investment readiness, and strategic leadership. My
-                approach combines international business acumen with actionable
-                insights.
-              </p>
+             
             </div>
 
             {/* Right Side: Button Section */}

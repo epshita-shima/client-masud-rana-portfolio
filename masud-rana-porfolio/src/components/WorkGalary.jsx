@@ -40,10 +40,10 @@ const WorkGalary = () => {
       : allWorks.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className=" p-6 mb-12">
-      <div className="container mx-auto px-4 ">
+    <div className=" ">
+      <div className="container mx-auto px-4">
         {/* Heading */}
-        <div className="text-center mb-8  ">
+        <div className="text-center mb-6 pt-24 ">
           <motion.h2
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ const WorkGalary = () => {
         </div>
 
         {/* Gallery */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pb-8">
           {filteredWorks.slice(0, 9).map((work, index) => (
             <motion.div
               key={work.id}

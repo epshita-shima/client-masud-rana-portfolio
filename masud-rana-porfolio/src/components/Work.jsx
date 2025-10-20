@@ -234,7 +234,7 @@ const Work = () => {
               >
                 Graphics Design
               </button>
-              <button
+              {/* <button
                 className="btn btn-secondary rounded-full"
                 onClick={() => {
                   setOpenDataEntryModal(true);
@@ -242,7 +242,7 @@ const Work = () => {
                 }}
               >
                 Data Entry
-              </button>
+              </button> */}
             </div>
             <div className="modal-action">
               <button className="btn" onClick={() => setOpenMainModal(false)}>

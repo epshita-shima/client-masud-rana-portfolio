@@ -16,16 +16,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body{
+  background-color: white;
+}
 
-
-body.scheme_default {
+/* body.scheme_default {
   position: relative;
   background-color: var(--theme-color-bg_color);
   overflow: hidden;
-}
+} */
 
 /* Shimmer effect */
-body.scheme_default::before {
+/* body.scheme_default::before {
   content: "";
   position: absolute;
   top: 0;
@@ -40,10 +42,10 @@ body.scheme_default::before {
   );
   transform: skewX(-25deg);
   animation: shimmer 4s infinite linear;
-  pointer-events: none; /* Clickable content unaffected */
+  pointer-events: none;
   z-index: 0;
-}
-
+} */
+/* 
 @keyframes shimmer {
   0% {
     transform: translateX(-100%) skewX(-25deg);
@@ -51,10 +53,10 @@ body.scheme_default::before {
   100% {
     transform: translateX(100%) skewX(-25deg);
   }
-}
+} */
 
 /* Ensure content is above shimmer */
-body.scheme_default > * {
+/* body.scheme_default > * {
   position: relative;
   z-index: 1;
-}
+} */

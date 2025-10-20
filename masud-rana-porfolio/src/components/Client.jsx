@@ -42,14 +42,14 @@ const Client = () => {
   };
 
   return (
-    <div className="py-24 px-4 mb-24">
-      <div className="container mx-auto px-4">
+    <div className=" ">
+      <div className="container mx-auto px-4 bg-offwhite-orange-shimmer_left">
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold text-center text-[#2C2C2C] mb-10"
+          className="text-3xl md:text-4xl font-bold text-center text-[#2C2C2C] mb-10 pt-24"
         >
           Client Experiences
         </motion.h2>

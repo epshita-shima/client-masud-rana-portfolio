@@ -11,7 +11,7 @@ import './Home.css'
 const Home = () => {
 
   return (
-    <div className='bg-offwhite-orange-shimmer'>
+    <div className='bg-white'>
         <Hero></Hero>
         <Experience></Experience>
         {/* <Gallary></Gallary> */}

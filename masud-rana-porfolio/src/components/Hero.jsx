@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Profile from "../assets/image/profile_pic/masudrana_profile.jpg"
 const Hero = () => {
   return (
-    <div className="hero h-screen container text-black  lg:p-8 mx-auto ">
+    <div className="hero h-screen container text-black  lg:p-8 mx-auto bg-offwhite-orange-shimmer ">
       <div className="grid grid-cols-1 py-6 lg:grid-cols-2 items-center gap-10 ml-4">
         
         {/* Animated Image */}
@@ -14,7 +14,7 @@ const Hero = () => {
         >
           <img
             src={Profile}
-            className="w-64 h-64 md:w-64 md:h-64  lg:w-[600px] max-w-sm rounded-[50%] border border-2 border-[#940000] shadow-2xl lg:h-[400px]"
+            className="w-64 h-64 md:w-64 md:h-64  lg:w-[600px] max-w-sm rounded-[50%] border-2 border-[#940000] shadow-2xl lg:h-[400px]"
           />
         </motion.div>
 
