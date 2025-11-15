@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import fiverLogo from "../../assets/image/fiverr-logo.png"
+import fiverLogo from "../../assets/image/logo_design/fiver_icon.png"
 const StickySocialMedia = () => {
   return (
     <motion.div
@@ -41,9 +41,9 @@ const StickySocialMedia = () => {
         href=" https://www.fiverr.com/s/2KlPZLL"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center text-white bg-[#1DBF73] transition-all duration-500 ease-in-out text-[14px] h-10 w-10 rounded-full transform hover:scale-110 hover:rotate-360 border-3 border-white"
+      
       >
-<img src={fiverLogo} alt="" />
+<img src={fiverLogo} alt="" className="flex items-center justify-center  text-white bg-[#940000] transition-all duration-500 ease-in-out text-[14px] h-8 w-8 rounded-full transform hover:scale-110 hover:rotate-360 border-3 border-white"/>
       </a> */}
     </motion.div>
   );

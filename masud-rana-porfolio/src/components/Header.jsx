@@ -1,7 +1,11 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import manusranalogo from "../assets/image/masudranabd_logo.png";
+
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -10,85 +14,275 @@ const Header = () => {
     { name: "Article", href: "/article" },
     { name: "Support", href: "/support" },
   ];
+
+  // Scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Mobile menu animation variants
+  const mobileMenuVariants = {
+    closed: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut"
+      }
+    },
+    open: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.4,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const navItemVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
+  };
+
   return (
-    <header className="bg-white shadow-sm p-2 sticky top-0 z-50">
-      <div className="navbar container mx-auto">
-        <div className="lg:navbar-start md:navbar-start w-full flex justify-between sm:flex sm:justify-between">
+    <motion.header
+      className={`bg-white sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? "shadow-lg bg-white/95 backdrop-blur-md" 
+          : "shadow-sm bg-white"
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <div className="container mx-auto px-4">
+        <div className="navbar py-3">
+          {/* Logo Section */}
           <motion.div
+            className="navbar-start flex-1"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="dropdown "
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost text-black lg:hidden"
+            <motion.a
+              href="/"
+              className="flex items-center gap-3"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
-              </svg>
-            </div>
-            <motion.ul
-              tabIndex={0}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              class="menu menu-sm dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              {navLinks.map((link, index) => (
-                <li key={index} className="text-black">
-                  <a href={link.href}>{link.name}</a>
-                </li>
-              ))}
-            </motion.ul>
+              <motion.img
+                src={manusranalogo}
+                alt="Masud Rana Logo"
+                className="w-12 h-12 object-contain"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              />
+       
+            </motion.a>
           </motion.div>
-          <motion.a
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="  text-black text-xl  hover:text-white"
+
+          {/* Desktop Navigation */}
+          <motion.div
+            className="navbar-center hidden lg:flex"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <img
-              src={manusranalogo} 
-              alt="Logo"
-              className="w-10 h-10 object-contain" 
-            />
-          </motion.a>
-        </div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="navbar-end hidden lg:flex"
-        >
-          <ul className="menu menu-horizontal px-1">
-            {navLinks.map((link, index) => (
-              <motion.li
-                key={index}
-                className="text-[#2C2C2C] hover:text-[#940000] text-[16px]"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
+            <ul className="menu menu-horizontal gap-2">
+              {navLinks.map((link, index) => (
+                <motion.li
+                  key={index}
+                  custom={index}
+                  initial="hidden"
+                  animate="visible"
+                  variants={navItemVariants}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -2
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <a
+                    href={link.href}
+                    className="text-[#2C2C2C] hover:text-[#940000] font-medium px-4 py-2 rounded-lg transition-colors duration-300 relative group"
+                  >
+                    {link.name}
+                    {/* Hover Underline Animation */}
+                    <motion.span
+                      className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#940000] group-hover:w-full transition-all duration-300"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                    />
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* CTA Button */}
+          <motion.div
+  className="navbar-end hidden lg:flex"
+  initial={{ opacity: 0, x: 50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6, delay: 0.4 }}
+>
+  <motion.button
+    className="bg-[#940000] text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 group relative overflow-hidden"
+    whileHover={{ 
+      scale: 1.05,
+      backgroundColor: "#7a0000",
+      boxShadow: "0 10px 25px rgba(148, 0, 0, 0.3)"
+    }}
+    whileTap={{ scale: 0.95 }}
+  >
+    {/* Animated Cart Icon */}
+    {/* <motion.div className="relative">
+      <motion.i 
+        className="fas fa-shopping-cart text-lg"
+        animate={{
+          y: [0, -3, 0]
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          repeatDelay: 5
+        }}
+      />
+
+      <motion.span 
+        className="absolute -top-2 -right-2 bg-yellow-400 text-[#940000] text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold border border-white"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.8 }}
+        whileHover={{ scale: 1.3, rotate: 360 }}
+      
+      >
+        0
+      </motion.span>
+    </motion.div> */}
+    
+    {/* Text with sliding effect */}
+    <motion.span
+      initial={{ x: 0 }}
+      whileHover={{ x: 3 }}
+      transition={{ type: "spring", stiffness: 400 }}
+    >
+      Add to Cart
+    </motion.span>
+    
+    {/* Hover shine effect */}
+    <motion.div
+      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+      whileHover={{ translateX: "200%" }}
+    />
+  </motion.button>
+</motion.div>
+
+          {/* Mobile Menu Button */}
+          <motion.div
+            className="navbar-end lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <motion.button
+              className="btn btn-ghost p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <motion.div
+                animate={isMobileMenuOpen ? "open" : "closed"}
+                className="flex flex-col gap-1"
               >
-                <a href={link.href}>{link.name}</a>
-              </motion.li>
-            ))}
-          </ul>
-        </motion.div>
+                <motion.span
+                  className="w-6 h-0.5 bg-[#2C2C2C] block"
+                  variants={{
+                    closed: { rotate: 0, y: 0 },
+                    open: { rotate: 45, y: 6 }
+                  }}
+                />
+                <motion.span
+                  className="w-6 h-0.5 bg-[#2C2C2C] block"
+                  variants={{
+                    closed: { opacity: 1 },
+                    open: { opacity: 0 }
+                  }}
+                />
+                <motion.span
+                  className="w-6 h-0.5 bg-[#2C2C2C] block"
+                  variants={{
+                    closed: { rotate: 0, y: 0 },
+                    open: { rotate: -45, y: -6 }
+                  }}
+                />
+              </motion.div>
+            </motion.button>
+          </motion.div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              variants={mobileMenuVariants}
+              initial="closed"
+              animate="open"
+              exit="closed"
+              className="lg:hidden bg-white/95 backdrop-blur-md rounded-lg mt-2 overflow-hidden shadow-xl"
+            >
+              <ul className="menu p-4 space-y-2">
+                {navLinks.map((link, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ x: 10 }}
+                  >
+                    <a
+                      href={link.href}
+                      className="text-[#2C2C2C] hover:text-[#940000] font-medium py-3 px-4 rounded-lg transition-colors duration-300 block"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </a>
+                  </motion.li>
+                ))}
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.1 }}
+                  className="pt-2"
+                >
+                  <motion.button
+                    className="bg-[#940000] text-white w-full py-3 rounded-full font-semibold"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Get In Touch
+                  </motion.button>
+                </motion.li>
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

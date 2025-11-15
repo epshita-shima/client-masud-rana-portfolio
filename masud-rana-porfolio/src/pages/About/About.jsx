@@ -1,204 +1,293 @@
 import { motion } from "framer-motion";
-import { div } from "framer-motion/client";
 
 const About = () => {
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const stats = [
+    { number: "5+", label: "Years Experience" },
+    { number: "100+", label: "Projects Completed" },
+    { number: "4+", label: "Countries Served" },
+    { number: "98%", label: "Client Satisfaction" }
+  ];
+
+  const skills = [
+    "Logo Design",
+    "Brand Identity",
+    "Typography",
+    "Vector Illustration",
+    "Color Theory",
+    "Creative Strategy"
+  ];
+
   return (
-    <div className="bg-white">
-      <div className="container mx-auto pb-12">
-        <div className=" flex flex-col lg:flex-row items-center justify-center  py-12">
-          {/* Image Section with Animation */}
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+      {/* Hero Section */}
+      <section className="container mx-auto py-16 px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          {/* Image Section */}
           <motion.div
-            className="lg:w-1/3 flex justify-center"
+            className="lg:w-2/5 flex justify-center"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            <img
-              src="https://th.bing.com/th/id/OIP.xrZIEhpJrAdGTbuBh8JHOQHaJy?rs=1&pid=ImgDetMain" // Replace with your actual image path
-              alt="Masud Rana"
-              className="w-96 h-96 rounded-full shadow-lg border-4 border-[#940000]"
-            />
+            <div className="relative">
+              <motion.img
+                src="https://th.bing.com/th/id/OIP.xrZIEhpJrAdGTbuBh8JHOQHaJy?rs=1&pid=ImgDetMain"
+                alt="Masud Rana"
+                className="w-80 h-80 rounded-2xl shadow-2xl object-cover border-4 border-white"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.div
+                className="absolute -bottom-4 -right-4 bg-[#940000] text-white px-6 py-3 rounded-xl shadow-lg"
+                initial={{ scale: 0, rotate: -10 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.5, type: "spring" }}
+              >
+                <div className="text-center">
+                  <div className="text-2xl font-bold">9+ Years</div>
+                  <div className="text-sm">Experience</div>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
 
-          {/* Text Section with Animation */}
+          {/* Text Section */}
           <motion.div
-            className="lg:w-2/3 text-center lg:text-left px-6"
+            className="lg:w-3/5"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-4xl font-bold text-black mb-4">About Me</h2>
-            <p className="text-lg text-[#2C2C2C] text-justify">
-              Hi, I'm{" "}
-              <span className="text-[#940000] font-semibold">Masud Rana</span>
-              ,a passionate and professional <strong>
-                graphic designer{" "}
-              </strong>{" "}
-              specializing in <strong>logo design</strong>. With a creative
-              journey that began in <strong>2015</strong>, I’ve spent nearly a
-              decade helping businesses and brands bring their identities to
-              life through clean, meaningful, and impactful visual design.
-            </p>
-            <p className="text-lg text-[#2C2C2C] text-justify">
-              I’ve worked with a diverse range of{" "}
-              <strong>international and local</strong> clients through top
-              freelancing platforms like <strong>Fiverr</strong> and{" "}
-              <strong>Freelancer.com</strong>, successfully completing numerous
-              projects across industries. My clients value my commitment to
-              quality, creativity, and timely delivery — and I take pride in
-              building strong, long-term relationships based on trust and
-              satisfaction.
-            </p>
-            <p className="text-lg text-[#2C2C2C] text-justify">
-              Design isn't just my profession — it's my passion. I believe that
-              a logo is more than just a visual mark; it’s the{" "}
-              <strong>face of a brand</strong>. My goal is to craft logos that
-              are not only visually striking but also meaningful, memorable, and
-              aligned with the brand’s identity.
-            </p>
-            <p className="text-lg text-[#2C2C2C] text-justify">
-              Whether you're a startup looking for a bold identity or an
-              established business in need of a brand refresh, I’m here to help
-              turn your vision into reality.
-            </p>
-            <p className="text-lg text-[#2C2C2C] text-justify">
-              Whether you're a startup looking for a bold identity or an
-              established business in need of a brand refresh, I’m here to help
-              turn your vision into reality.
-            </p>
-            <p className="text-lg text-[#2C2C2C] text-justify">
-              Let’s create something amazing together.
-            </p>
-            {/* Buttons with Hover Animation */}
             <motion.div
-              className="mt-6 flex justify-center lg:justify-start gap-4"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <h1 className="text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+                Hi, I'm <span className="text-[#940000]">Masud Rana</span>
+              </h1>
+              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                A passionate <strong>Graphic Designer</strong> specializing in creating 
+                meaningful brand identities through strategic logo design. 
+                Transforming visions into visual stories since <strong>2015</strong>.
+              </p>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="text-center p-4 bg-white rounded-xl shadow-lg border border-gray-100"
+                >
+                  <div className="text-2xl lg:text-3xl font-bold text-[#940000] mb-1">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-gray-600 font-medium">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
             >
               <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="btn bg-[#940000] border-[#940000] text-white"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-[#940000] text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:bg-[#7a0000] transition-colors flex items-center justify-center gap-2"
               >
-                Hire Me
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                </svg>
+                Start Your Project
               </motion.button>
               <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="btn btn-outline text-[#940000] hover:bg-[#940000] hover:text-white hover:border-0"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="border-2 border-[#940000] text-[#940000] px-8 py-4 rounded-xl font-semibold hover:bg-[#940000] hover:text-white transition-colors flex items-center justify-center gap-2"
               >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
                 Download Resume
               </motion.button>
             </motion.div>
           </motion.div>
         </div>
+      </section>
 
-        <div className="px-4 md:px-12 lg:px-20">
-          {/* Section Title */}
-          <h3 className="text-[#940000] text-2xl font-semibold tracking-widest animate__animated animate__fadeInUp">
-            About Masud Rana
-          </h3>
+      {/* Vision & Mission Section */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              My Design Philosophy
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Building brands that stand the test of time through strategic design and meaningful storytelling
+            </p>
+          </motion.div>
 
-          {/* Responsive Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-6">
-            {/* Left Content */}
-            <div className="md:col-span-8 animate__animated animate__fadeInLeft">
-              <p className="text-2xl text-black mb-6">
-                Driven by Vision | Focused on Impact | Committed to Excellence
-              </p>
-              <p className="text-lg text-[#2C2C2C] text-justify">
-                Since beginning my design journey in 2015, I’ve always believed
-                that design is more than just visual aesthetics — it’s a
-                powerful language of connection, emotion, and identity. As a
-                logo designer, I see every project not just as a task, but as an
-                opportunity to <strong>bring a brand’s soul to life</strong>{" "}
-                through a mark that speaks louder than words.
-              </p>
-
-              <p className="text-lg text-[#2C2C2C] text-justify">
-                My vision is to build a globally respected design identity — one
-                that blends{" "}
-                <strong>creative excellence, strategic thinking</strong>, and{" "}
-                <strong>deep cultural understanding</strong> to create logos
-                that transcend trends and time. I aim to be recognized not only
-                as a skilled designer but as a visionary who helps shape the
-                future of branding through purposeful and meaningful design.
-              </p>
-              <p className="text-lg text-[#2C2C2C] text-justify">
-                I envision a world where every business, regardless of size or
-                location, has access to powerful visual branding — a logo that
-                tells their story, builds trust with their audience, and
-                positions them for growth and success. I want to contribute to
-                that world by delivering designs that don’t just look good but{" "}
-                <strong>
-                  inspire confidence, evoke emotion, and drive connection
-                </strong>
-                .
-              </p>
-              <p className="text-lg text-[#2C2C2C] text-justify">
-                Over the years, I’ve worked with clients from various industries
-                and across continents, and each collaboration has strengthened
-                my belief that great design is universal — it breaks barriers,
-                unites cultures, and speaks directly to the human spirit. My
-                vision is to continue evolving, learning, and pushing the
-                boundaries of creativity, while staying rooted in the core
-                values that define my work: authenticity, clarity, and impact.
-              </p>
-              <p className="text-lg text-[#2C2C2C] text-justify">
-                Ultimately, my vision is to leave a legacy — not just of beautiful logos, but of <strong>brands transformed, dreams visualized,</strong> and <strong>stories remembered</strong> through the power of design.
-              </p>
-              {/* Career Highlights */}
-              <p className="text-2xl text-black mb-6 mt-6">
-               Mission | Building Identities | Inspiring Impact
-              </p>
-              <p className="text-lg text-[#2C2C2C] text-justify">
-                My mission as a logo designer is rooted in a deep commitment to <strong>transforming ideas into iconic visual identities</strong> that stand the test of time. Since 2015, I have dedicated myself to not just creating designs — but building <strong>powerful brand symbols</strong> that tell stories, build trust, and inspire action.
-              </p>
-              <p className="text-lg text-[#2C2C2C] text-justify">
-                I believe that every brand, whether a small startup or a global enterprise, deserves a logo that reflects its <strong>authentic personality, core values, and unique purpose</strong>. My mission is to deliver designs that go beyond the surface — visuals that carry meaning, evoke emotion, and communicate clearly across cultures, platforms, and generations.
-              </p>
-              <p className="text-lg text-[#2C2C2C] text-justify">
-                With each project, I aim to provide:
-              </p>
-              <ul className="text-gray-600 text-lg list-disc pl-5">
-                <li>
-                 <strong>Creative Excellence:</strong> To craft visually striking logos that are both innovative and strategically aligned with the brand’s goals.
-                </li>
-                <li>
-                  <strong>Client-Centric Collaboration:</strong> To truly listen, understand, and involve my clients throughout the design journey, turning their ideas into a visual language they can proudly own.
-                </li>
-                <li>
-                 	<strong>Consistency & Professionalism:</strong> To maintain a high standard of reliability, clear communication, and timely delivery — earning the trust and satisfaction of every client I work with.
-                </li>
-                <li>
-                  <strong>Global Perspective:</strong> To serve a diverse, international clientele with sensitivity to cultural nuance and an understanding of global design trends.
-                </li>
-                <li><strong>Continuous Growth:</strong>	 To evolve with the ever-changing world of design — staying inspired, mastering new tools and techniques, and pushing the limits of my creative boundaries.</li>
-              <p className="text-lg text-[#2C2C2C] text-justify">
-                At the heart of my mission is a belief: <strong>a great logo is the foundation of a great brand</strong>. It’s the first impression, the lasting memory, and the symbol that clients, customers, and communities associate with a business. My mission is to create that symbol — one logo at a time — with passion, precision, and purpose.
-              </p>
-              <p className="text-lg text-[#2C2C2C] text-justify">Through every project, I strive not just to meet expectations, but to exceed them. To deliver work that is not only visually outstanding but also strategically meaningful — work that helps brands <strong>stand out, grow with confidence, and leave a lasting mark</strong> in their industry.</p>
-              </ul>
-
-
-             
-            </div>
-
-            {/* Right Side: Button Section */}
-            <div className="md:col-span-4 flex md:justify-center animate__animated animate__fadeInRight">
-              <div className="bg-[#FBF1F2] h-44 w-full md:w-64 flex items-center justify-center rounded-lg shadow-md">
-                <button
-                  className="btn bg-[#940000] text-white p-4 w-52 md:w-42 border-none h-auto tracking-wider mt-8 
-              hover:scale-105 transition-transform duration-300 ease-in-out"
-                >
-                  SHEDULE A STRATEGIC CONSULTATION
-                </button>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Vision Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-[#940000] rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800">My Vision</h3>
               </div>
-            </div>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                To build a globally respected design identity that blends creative excellence, 
+                strategic thinking, and cultural understanding to create logos that transcend trends and time.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                I envision a world where every business has access to powerful visual branding — 
+                logos that tell stories, build trust, and position them for growth and success.
+              </p>
+            </motion.div>
+
+            {/* Mission Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-[#940000] rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800">My Mission</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                To transform ideas into iconic visual identities that stand the test of time, 
+                creating powerful brand symbols that tell stories and inspire action.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Through every project, I strive to deliver work that is not only visually outstanding 
+                but also strategically meaningful — helping brands stand out and leave a lasting mark.
+              </p>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Skills & Expertise */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Skills & Expertise</h2>
+            <p className="text-xl text-gray-600">Specialized in creating impactful brand identities</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 text-center group hover:shadow-xl transition-all duration-300"
+              >
+                <div className="w-16 h-16 bg-[#940000] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white text-2xl">✨</span>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{skill}</h3>
+                <p className="text-gray-600 text-sm">
+                  Crafting meaningful designs that resonate with your audience
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-[#940000] to-[#7a0000]">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Ready to Bring Your Vision to Life?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Let's collaborate to create a brand identity that truly represents your business and connects with your audience.
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-[#940000] px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:bg-gray-100 transition-colors"
+            >
+              Schedule a Free Consultation
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };
