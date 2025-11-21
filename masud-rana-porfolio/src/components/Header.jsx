@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import manusranalogo from "../assets/image/masudranabd_logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  // Get cart items from Redux store
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartItemsCount = cartItems.reduce((count, item) => count + item.quantity, 0);
 
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
     { name: "Work", href: "/work" },
     { name: "Blog", href: "/blog" },
     { name: "Article", href: "/article" },
@@ -57,6 +65,14 @@ const Header = () => {
     })
   };
 
+  const handleCartClick = () => {
+    if (cartItems.length > 0) {
+      navigate('/checkout');
+    } else {
+      navigate('/services');
+    }
+  };
+
   return (
     <motion.header
       className={`bg-white sticky top-0 z-50 transition-all duration-300 ${
@@ -86,11 +102,10 @@ const Header = () => {
               <motion.img
                 src={manusranalogo}
                 alt="Masud Rana Logo"
-                className="w-12 h-12 object-contain"
+                className="w-16 h-16 object-contain"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               />
-       
             </motion.a>
           </motion.div>
 
@@ -120,7 +135,6 @@ const Header = () => {
                     className="text-[#2C2C2C] hover:text-[#940000] font-medium px-4 py-2 rounded-lg transition-colors duration-300 relative group"
                   >
                     {link.name}
-                    {/* Hover Underline Animation */}
                     <motion.span
                       className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#940000] group-hover:w-full transition-all duration-300"
                       initial={{ width: 0 }}
@@ -132,72 +146,84 @@ const Header = () => {
             </ul>
           </motion.div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Cart */}
           <motion.div
-  className="navbar-end hidden lg:flex"
-  initial={{ opacity: 0, x: 50 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.6, delay: 0.4 }}
->
-  <motion.button
-    className="bg-[#940000] text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 group relative overflow-hidden"
-    whileHover={{ 
-      scale: 1.05,
-      backgroundColor: "#7a0000",
-      boxShadow: "0 10px 25px rgba(148, 0, 0, 0.3)"
-    }}
-    whileTap={{ scale: 0.95 }}
-  >
-    {/* Animated Cart Icon */}
-    {/* <motion.div className="relative">
-      <motion.i 
-        className="fas fa-shopping-cart text-lg"
-        animate={{
-          y: [0, -3, 0]
-        }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          repeatDelay: 5
-        }}
-      />
-
-      <motion.span 
-        className="absolute -top-2 -right-2 bg-yellow-400 text-[#940000] text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold border border-white"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 0.8 }}
-        whileHover={{ scale: 1.3, rotate: 360 }}
-      
-      >
-        0
-      </motion.span>
-    </motion.div> */}
-    
-    {/* Text with sliding effect */}
-    <motion.span
-      initial={{ x: 0 }}
-      whileHover={{ x: 3 }}
-      transition={{ type: "spring", stiffness: 400 }}
-    >
-      Add to Cart
-    </motion.span>
-    
-    {/* Hover shine effect */}
-    <motion.div
-      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-      whileHover={{ translateX: "200%" }}
-    />
-  </motion.button>
-</motion.div>
+            className="navbar-end hidden lg:flex"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <motion.button
+              className="bg-[#940000] text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 group relative overflow-hidden"
+              whileHover={{ 
+                scale: 1.05,
+                backgroundColor: "#7a0000",
+                boxShadow: "0 10px 25px rgba(148, 0, 0, 0.3)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleCartClick}
+            >
+              <motion.div className="relative">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5.5M7 13l2.5 5.5m0 0L17 21" />
+                </svg>
+                
+                {cartItemsCount > 0 && (
+                  <motion.span 
+                    className="absolute -top-2 -right-2 bg-yellow-400 text-[#940000] text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold border border-white"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 500 }}
+                    whileHover={{ scale: 1.3, rotate: 360 }}
+                  >
+                    {cartItemsCount}
+                  </motion.span>
+                )}
+              </motion.div>
+              
+              <motion.span
+                initial={{ x: 0 }}
+                whileHover={{ x: 3 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                {cartItemsCount > 0 ? `Cart (${cartItemsCount})` : 'View Cart'}
+              </motion.span>
+              
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                whileHover={{ translateX: "200%" }}
+              />
+            </motion.button>
+          </motion.div>
 
           {/* Mobile Menu Button */}
           <motion.div
-            className="navbar-end lg:hidden"
+            className="navbar-end lg:hidden flex items-center gap-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
+            {/* Mobile Cart Icon */}
+            <motion.div 
+              className="relative cursor-pointer"
+              whileHover={{ scale: 1.1 }}
+              onClick={handleCartClick}
+            >
+              <svg className="w-6 h-6 text-[#940000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5.5M7 13l2.5 5.5m0 0L17 21" />
+              </svg>
+              {cartItemsCount > 0 && (
+                <motion.span 
+                  className="absolute -top-2 -right-2 bg-[#940000] text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-bold border border-white"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 500 }}
+                >
+                  {cartItemsCount}
+                </motion.span>
+              )}
+            </motion.div>
+
             <motion.button
               className="btn btn-ghost p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -266,15 +292,21 @@ const Header = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navLinks.length * 0.1 }}
-                  className="pt-2"
+                  className="pt-2 border-t border-gray-200"
                 >
                   <motion.button
-                    className="bg-[#940000] text-white w-full py-3 rounded-full font-semibold"
+                    className="bg-[#940000] text-white w-full py-3 rounded-full font-semibold flex items-center justify-center gap-2"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      handleCartClick();
+                    }}
                   >
-                    Get In Touch
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5.5M7 13l2.5 5.5m0 0L17 21" />
+                    </svg>
+                    {cartItemsCount > 0 ? `View Cart (${cartItemsCount})` : 'View Cart'}
                   </motion.button>
                 </motion.li>
               </ul>

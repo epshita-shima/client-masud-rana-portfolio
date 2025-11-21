@@ -1,7 +1,27 @@
-import { motion } from "framer-motion";
-import Profile from "../assets/image/profile_pic/masudrana_profile.jpg"
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import Profile from "../assets/image/profile_pic/masudrana_profile.jpg";
+import Slider_1 from "../assets/image/profile_pic/slider_1.jpg";
+import Slider_2 from "../assets/image/profile_pic/slider_2.jpg";
 
 const Hero = () => {
+  // Background slider images
+  const backgroundImages = [
+    Slider_1,
+    Slider_2,
+  ];
+
+  const [currentBgIndex, setCurrentBgIndex] = useState(0);
+
+  // Auto slide background
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBgIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Text animation variants
   const textVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -38,7 +58,7 @@ const Hero = () => {
 
   // Floating animation for image
   const floatingAnimation = {
-    y: [0, -10, 0],
+    y: [0, -20, 0],
     transition: {
       duration: 4,
       repeat: Infinity,
@@ -46,89 +66,98 @@ const Hero = () => {
     }
   };
 
-  // Background elements animation
-  const bgElementVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
+  // Background slider animation
+  const bgSliderVariants = {
+    enter: {
+      opacity: 0,
+      scale: 1.1
+    },
+    center: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 1,
+        duration: 1.5,
         ease: "easeOut"
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 1,
+      transition: {
+        duration: 1.5,
+        ease: "easeIn"
       }
     }
   };
 
   return (
-    <div className="hero h-screen container text-black lg:p-8 mx-auto bg-offwhite-orange-shimmer relative overflow-hidden">
+    <div className="hero h-screen w-full text-black mx-auto relative overflow-hidden">
       
-      {/* Animated Background Elements */}
-      <motion.div 
-        className="absolute top-10 left-10 w-20 h-20 border-2 border-[#940000] rounded-full opacity-10"
-        variants={bgElementVariants}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 0.5 }}
-      />
-      <motion.div 
-        className="absolute bottom-20 right-20 w-16 h-16 border-2 border-[#940000] rounded-full opacity-10"
-        variants={bgElementVariants}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 0.7 }}
-      />
-      <motion.div 
-        className="absolute top-1/2 right-1/4 w-12 h-12 border-2 border-[#940000] rounded-full opacity-10"
-        variants={bgElementVariants}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 0.9 }}
-      />
-
-      <div className="grid grid-cols-1 py-6 lg:grid-cols-2 items-center gap-10 ml-4 h-full">
-        
-        {/* Animated Image */}
-        <motion.div 
-          className="order-1 lg:order-2 flex w-full lg:justify-end justify-center relative"
-          variants={imageVariants}
-          initial="hidden"
-          animate="visible"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          {/* Floating Effect Container */}
+      {/* Full Width Background Slider */}
+      <div className="absolute inset-0 z-0 w-full">
+        <AnimatePresence mode="wait">
           <motion.div
-            animate={floatingAnimation}
+            key={currentBgIndex}
+            variants={bgSliderVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(${backgroundImages[currentBgIndex]})`
+            }}
           >
-            <motion.img
-              src={Profile}
-              className="w-64 h-64 md:w-64 md:h-64 lg:w-[600px] max-w-sm rounded-[50%] border-4 border-[#940000] shadow-2xl lg:h-[400px] relative z-10"
-              whileHover={{ 
-                boxShadow: "0 20px 40px rgba(148, 0, 0, 0.3)",
-                borderWidth: "6px"
-              }}
-              transition={{ type: "spring", stiffness: 300 }}
-            />
-            
-            {/* Glow Effect */}
-            <motion.div 
-              className="absolute inset-0 rounded-[50%] bg-[#940000] blur-xl opacity-20 z-0"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.2, 0.3, 0.2]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
+            {/* Dark overlay for better text readability */}
+            <div className="absolute inset-0 bg-black/40"></div>
           </motion.div>
-        </motion.div>
+        </AnimatePresence>
+      </div>
 
-        {/* Animated Text Content */}
+      {/* Large Profile Image on Right Side */}
+      <motion.div 
+        className="absolute right-12 top-1/2 transform -translate-y-1/2 z-20"
+        variants={imageVariants}
+        initial="hidden"
+        animate="visible"
+        whileHover={{ scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        <motion.div
+          animate={floatingAnimation}
+          className="relative"
+        >
+          <motion.img
+            src={Profile}
+            className="w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full border-6 border-[#940000] shadow-2xl bg-white"
+            whileHover={{ 
+              boxShadow: "0 20px 50px rgba(148, 0, 0, 0.6)",
+              borderWidth: "8px"
+            }}
+            transition={{ type: "spring", stiffness: 300 }}
+          />
+          
+          {/* Glow Effect */}
+          <motion.div 
+            className="absolute inset-0 rounded-full bg-[#940000] blur-2xl opacity-50 z-0"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.4, 0.6, 0.4]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+
+   
+        </motion.div>
+      </motion.div>
+
+      {/* Text Content - More Centered */}
+      <div className="relative z-10 flex items-center h-full w-full px-8 lg:px-20">
         <motion.div 
-          className="order-2 lg:order-1 text-center lg:text-left space-y-6"
+          className="text-left space-y-6 max-w-4xl ml-8 lg:ml-16"
           initial="hidden"
           animate="visible"
         >
@@ -137,7 +166,7 @@ const Hero = () => {
             className="overflow-hidden"
           >
             <motion.h1 
-              className="text-4xl lg:text-6xl font-bold text-[#2C2C2C] mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-2xl"
               variants={textVariants}
               custom={0}
               initial="hidden"
@@ -145,7 +174,7 @@ const Hero = () => {
             >
               Hello, I'm{" "}
               <motion.span 
-                className="text-[#940000] relative"
+                className="text-[#940000] relative bg-white/90 px-4 py-2 rounded-xl"
                 initial={{ backgroundSize: "0% 100%" }}
                 animate={{ backgroundSize: "100% 100%" }}
                 transition={{ duration: 1.5, delay: 1 }}
@@ -168,12 +197,12 @@ const Hero = () => {
             animate="visible"
           >
             <motion.h2 
-              className="text-xl lg:text-2xl text-[#940000] font-semibold mb-2"
+              className="text-2xl md:text-3xl lg:text-4xl text-white font-semibold mb-4 drop-shadow-2xl"
               whileInView={{ opacity: 1, x: 0 }}
             >
               Professional Graphic Designer
             </motion.h2>
-            <div className="w-20 h-1 bg-[#940000] rounded-full mx-auto lg:mx-0"></div>
+            <div className="w-32 h-1 bg-white rounded-full mb-6"></div>
           </motion.div>
 
           {/* Description */}
@@ -182,14 +211,15 @@ const Hero = () => {
             custom={2}
             initial="hidden"
             animate="visible"
+            className="max-w-2xl"
           >
             <motion.p 
-              className="py-6 px-4 text-lg text-[#2C2C2C] lg:px-0 leading-relaxed"
-              whileHover={{ scale: 1.02 }}
+              className="text-lg md:text-xl lg:text-xl text-white leading-relaxed drop-shadow-2xl bg-black/40 rounded-2xl p-6 md:p-6 backdrop-blur-sm border border-white/20"
+              whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
               I am a passionate and professional graphic designer specializing in logo design. 
-              With a creative journey that began in <span className="text-[#940000] font-semibold">2015</span>, 
+              With a creative journey that began in <span className="text-[#940000] font-bold bg-white/90 px-2 py-1 rounded">2015</span>, 
               I've spent nearly a decade helping businesses and brands bring their identities 
               to life through clean, meaningful, and impactful visual design.
             </motion.p>
@@ -201,31 +231,68 @@ const Hero = () => {
             custom={3}
             initial="hidden"
             animate="visible"
-            className="flex justify-center lg:justify-start"
+            className="flex"
           >
             <motion.div 
-              className="inline-flex items-center gap-2 bg-[#940000] text-white px-6 py-3 rounded-full shadow-lg"
+              className="inline-flex items-center gap-3 bg-[#940000] text-white px-8 py-4 rounded-full shadow-2xl backdrop-blur-sm border border-white/20"
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0 10px 25px rgba(148, 0, 0, 0.4)"
+                boxShadow: "0 20px 40px rgba(148, 0, 0, 0.6)"
               }}
               whileTap={{ scale: 0.95 }}
             >
               <motion.span 
-                className="text-lg font-semibold"
+                className="text-xl"
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 2, repeat: Infinity, repeatDelay: 5 }}
               >
                 🎨
               </motion.span>
-              <span className="text-sm lg:text-base">9+ Years of Creative Experience</span>
+              <span className="text-base md:text-lg font-semibold">9+ Years of Creative Experience</span>
             </motion.div>
           </motion.div>
 
-          {/* CTA Button (Optional) */}
-        
+          {/* Background Slider Indicators */}
+          <motion.div
+            variants={textVariants}
+            custom={4}
+            initial="hidden"
+            animate="visible"
+            className="flex gap-3 mt-8"
+          >
+            {backgroundImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentBgIndex(index)}
+                className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                  index === currentBgIndex 
+                    ? 'bg-[#940000] scale-125 border-2 border-white' 
+                    : 'bg-white/60 hover:bg-white/80 border border-white/40'
+                }`}
+              />
+            ))}
+          </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2 }}
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="text-white/80 text-sm flex flex-col items-center gap-2"
+        >
+          <span>Scroll Down</span>
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

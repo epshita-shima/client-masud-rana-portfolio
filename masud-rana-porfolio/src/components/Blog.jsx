@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // useNavigate ইম্পোর্ট করুন
+import logoImage from "../assets/image/logo_design/watermark_icon.jpg"; // আপনার লোগো ইমেজ ইম্পোর্ট করুন
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -8,6 +10,7 @@ const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate(); // useNavigate হুক ব্যবহার করুন
 
   useEffect(() => {
     const data = [
@@ -102,6 +105,11 @@ const Blog = () => {
 
   const tags = ['Logo Design', 'Branding', 'Typography', 'Color Theory', 'Web Design', 'Illustration', 'Print Design', 'UI/UX'];
 
+  // Logo click handler - Home এ navigate করে
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
     if (category === "All") {
@@ -131,7 +139,31 @@ const Blog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-12 relative">
+      {/* Bottom Fixed Logo Button - সব পেজে দেখা যাবে */}
+      <motion.button
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        onClick={handleLogoClick}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#940000] rounded-full shadow-2xl border-2 border-white flex items-center justify-center hover:shadow-xl transition-all duration-300 group"
+        whileHover={{ scale: 1.1, backgroundColor: "#7a0000" }}
+        whileTap={{ scale: 0.9 }}
+      >
+        {/* লোগো ইমেজ */}
+        <div className="text-white font-bold text-lg">
+          <img src={logoImage} alt="Logo" className="w-8 h-8 rounded-full" />
+        </div>
+
+        {/* Tooltip */}
+        <div className="absolute right-16 bottom-1/2 transform translate-y-1/2 bg-black text-white text-xs px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-lg">
+          ← Back to Home
+        </div>
+
+        {/* Pulse Animation */}
+        <div className="absolute inset-0 rounded-full bg-[#940000] animate-ping opacity-20"></div>
+      </motion.button>
+
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <motion.div

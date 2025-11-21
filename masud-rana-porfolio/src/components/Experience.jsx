@@ -26,18 +26,6 @@ const Experience = () => {
     }
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
   const listItemVariants = {
     hidden: { opacity: 0, x: -20 },
     visible: {
@@ -51,30 +39,13 @@ const Experience = () => {
   };
 
   return (
-    <div className="">
+    <div className="mt-24">
       <div className="container mx-auto">
         <div className="w-full bg-[#940000] h-auto overflow-hidden">
           <div className="flex flex-col sm:flex-row sm:justify-between">
-            {/* Image Section */}
+            {/* Text Content - Now takes full width */}
             <motion.div 
-              className="w-full sm:w-[45%] order-1 sm:order-2"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              variants={imageVariants}
-            >
-              <motion.img
-                src="https://img1.wsimg.com/isteam/stock/6QqQeq5/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1534,m"
-                alt="Experience"
-                className="w-full h-auto sm:h-3/4 object-cover"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
-
-            {/* Text Content */}
-            <motion.div 
-              className="w-full sm:w-[50%] pt-6 sm:pt-16 pl-4 sm:pl-8 order-2 sm:order-1 pr-4"
+              className="w-full pt-6 sm:pt-16 pl-4 sm:pl-8 pr-4"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}

@@ -4,45 +4,45 @@ import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
 import client1 from "../assets/image/client-1.jpg";
 import client2 from "../assets/image/client-2.jpg";
-
+import client3 from "../assets/image/client/client_3.jpg"
 const Client = () => {
   const clientFeedbacks = [
     {
       img: client1,
-      name: "Sarah Johnson",
-      country: "United Kingdom",
-      rating: 4.8,
+      name: "Drews Brewsvo",
+      country: "United States",
+      rating: 5,
       feedback:
         "Masud's logo design exceeded my expectations! He perfectly captured our brand identity and delivered multiple concepts to choose from. The attention to detail and professionalism was outstanding.",
       project: "Restaurant Brand Identity"
     },
     {
       img: client2,
-      name: "Michael Chen",
+      name: "Bola Olatunji",
       country: "United States",
-      rating: 4.9,
+      rating: 5,
       feedback:
         "Working with Masud was a game-changer for our startup. His creative approach to our logo design helped us stand out in a competitive market. Quick turnaround and excellent communication throughout!",
       project: "Tech Startup Logo"
     },
     {
-      img: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
-      name: "Emma Rodriguez",
-      country: "Canada",
-      rating: 4.7,
+      img: client3,
+      name: "Emily Rosales",
+      country: "Philippines",
+      rating: 5,
       feedback:
         "Professional, talented, and reliable. Masud transformed our vague ideas into a stunning visual identity. The logo he created perfectly represents our values and vision. Highly recommended!",
       project: "Fashion Brand Logo"
     },
-    {
-      img: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
-      name: "David Wilson",
-      country: "Australia",
-      rating: 5.0,
-      feedback:
-        "Exceptional service from start to finish! Masud understood our brand instantly and delivered a logo that we absolutely love. The entire process was smooth and collaborative.",
-      project: "Corporate Branding"
-    }
+    // {
+    //   img: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
+    //   name: "David Wilson",
+    //   country: "Australia",
+    //   rating: 5.0,
+    //   feedback:
+    //     "Exceptional service from start to finish! Masud understood our brand instantly and delivered a logo that we absolutely love. The entire process was smooth and collaborative.",
+    //   project: "Corporate Branding"
+    // }
   ];
 
   const settings = {

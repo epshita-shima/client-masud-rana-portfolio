@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "../pages/Home/Home/Home";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Main from "../Layout/Main";
 import About from "../pages/About/About";
 import Support from "../components/Support";
@@ -14,6 +14,8 @@ import AdminLogin from "../pages/Admin/AdminLogin";
 import AdminLayout from "../Layout/AdminLayout";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
+import NotFound from "../pages/NotFound";
+import Services from "../components/Services";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/work",
         element: <Work></Work>,
+      },
+      {
+        path:"services",
+        element:<Services></Services>
       },
       {
         path: "/blog",
@@ -63,10 +69,14 @@ export const router = createBrowserRouter([
     element: <AdminLayout></AdminLayout>,
     children: [
       {
+        index: true,
+        element: <Navigate to="/admin/login" replace />
+      },
+      {
         path: "login",
         element: <AdminLogin></AdminLogin>,
       },
-    {
+      {
         path: "dashboard",
         element: (
           <ProtectedRoute>
@@ -76,4 +86,9 @@ export const router = createBrowserRouter([
       }
     ],
   },
+  // Add catch-all route for 404 pages
+  {
+    path: "*",
+    element: <NotFound /> // Create this component
+  }
 ]);
