@@ -10,7 +10,7 @@ const Article = () => {
 
   const articleData = {
     title: "Designing With Purpose: Creating Meaningful Visual Experiences",
-    description: "Discover how purposeful design transforms brands and creates lasting impressions. Learn from professional graphic designer Masud Rana with 9+ years of experience.",
+    description: "Discover how purposeful design transforms brands and creates lasting impressions. Learn from professional graphic designer Masud Rana with 5+ years of experience.",
     excerpt: "As a graphics designer, it's not just about making things pretty—it's about communicating visually and creating meaningful experiences that resonate with audiences.",
     author: "Masud Rana",
     publishDate: "2025-05-20",
@@ -166,7 +166,7 @@ const Article = () => {
                 />
                 <div>
                   <p className="font-semibold text-gray-800">{articleData.author}</p>
-                  <p className="text-sm text-gray-600">Professional Graphic Designer • 9+ Years Experience</p>
+                  <p className="text-sm text-gray-600">Professional Graphic Designer • 5+ Years Experience</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 text-sm text-gray-600">
@@ -221,7 +221,7 @@ const Article = () => {
                   your message with clarity and impact.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                  In my 9+ years as a professional graphic designer, I've learned that great design tells a story. 
+                  In my 5+ years as a professional graphic designer, I've learned that great design tells a story. 
                   Each element—from typography choices to color schemes—plays a specific role in that narrative. 
                   When I approach a new project, whether it's a logo design or a complete brand identity, I always 
                   start by asking: "What story are we trying to tell, and how can visual hierarchy help tell it better?"
@@ -384,7 +384,7 @@ const Article = () => {
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-gray-800 mb-3">About {articleData.author}</h3>
                 <p className="text-gray-600 mb-4 text-lg leading-relaxed">
-                  Professional Graphic Designer with 9+ years of experience specializing in logo design, 
+                  Professional Graphic Designer with 5+ years of experience specializing in logo design, 
                   brand identity, and visual storytelling. Passionate about creating designs that not only 
                   look beautiful but also serve strategic business purposes and drive measurable results.
                 </p>

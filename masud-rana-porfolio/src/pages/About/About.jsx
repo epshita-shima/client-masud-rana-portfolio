@@ -103,7 +103,7 @@ const About = () => {
                 transition={{ delay: 0.5, type: "spring" }}
               >
                 <div className="text-center">
-                  <div className="text-2xl font-bold">9+ Years</div>
+                  <div className="text-2xl font-bold">5+ Years</div>
                   <div className="text-sm">Experience</div>
                 </div>
               </motion.div>
@@ -128,7 +128,7 @@ const About = () => {
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
                 A passionate <strong>Graphic Designer</strong> specializing in creating 
                 meaningful brand identities through strategic logo design. 
-                Transforming visions into visual stories since <strong>2015</strong>.
+                Transforming visions into visual stories since <strong>2020</strong>.
               </p>
             </motion.div>
 

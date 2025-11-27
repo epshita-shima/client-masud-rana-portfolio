@@ -47,8 +47,9 @@ const Home = () => {
       </motion.button>
 
       <Hero></Hero>
-      <Experience></Experience>
+      
       <WorkGalary></WorkGalary>
+      <Experience></Experience>
       <Client></Client>
       <Contact></Contact>
     </div>

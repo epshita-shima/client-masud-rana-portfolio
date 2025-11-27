@@ -72,7 +72,7 @@ const Experience = () => {
                   transition={{ duration: 0.8, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  Since 2015, I've been on a creative journey that has allowed
+                  Since 2020, I've been on a creative journey that has allowed
                   me to transform visions into visual identities. With a
                   deep-rooted passion for design and a sharp eye for aesthetics,
                   I've specialized in crafting compelling logos that blend

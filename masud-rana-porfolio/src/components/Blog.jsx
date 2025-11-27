@@ -311,7 +311,7 @@ const Blog = () => {
             >
               <h3 className="text-xl font-bold text-gray-800 mb-4">About the Blog</h3>
               <p className="text-gray-600 mb-4">
-                Sharing design insights, tips, and experiences from my journey as a professional graphic designer since 2015.
+                Sharing design insights, tips, and experiences from my journey as a professional graphic designer since 2020.
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-[#940000] rounded-full flex items-center justify-center">

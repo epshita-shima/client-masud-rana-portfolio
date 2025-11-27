@@ -9,7 +9,7 @@ const Client = () => {
   const clientFeedbacks = [
     {
       img: client1,
-      name: "Drews Brewsvo",
+      name: "Bola Olatunji",
       country: "United States",
       rating: 5,
       feedback:
@@ -18,7 +18,7 @@ const Client = () => {
     },
     {
       img: client2,
-      name: "Bola Olatunji",
+      name: " Drews Brewsvo",
       country: "United States",
       rating: 5,
       feedback:
@@ -120,7 +120,7 @@ const Client = () => {
             { number: "50+", label: "Projects Completed" },
             { number: "45+", label: "Happy Clients" },
             { number: "4.8", label: "Average Rating" },
-            { number: "9+", label: "Years Experience" }
+            { number: "5+", label: "Years Experience" }
           ].map((stat, index) => (
             <div key={index} className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
               <div className="text-3xl font-bold text-[#940000] mb-2">{stat.number}</div>

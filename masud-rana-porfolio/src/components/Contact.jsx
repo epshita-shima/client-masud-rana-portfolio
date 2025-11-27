@@ -61,10 +61,10 @@ const Contact = () => {
     "Not Sure",
   ];
   const socialLinks = {
-    Twitter: "https://x.com/MasudRana0161",
-    Facebook: "https://www.facebook.com/profile.php?id=61580500531550",
+    // Twitter: "https://x.com/MasudRana0161",
+    // Facebook: "https://www.facebook.com/profile.php?id=61580500531550",
     Fiverr: "https://www.fiverr.com/s/2KlPZLL",
-    LinkedIn: "http://linkedin.com/in/masud-rana-a6821512a",
+    // LinkedIn: "http://linkedin.com/in/masud-rana-a6821512a",
   };
   return (
     <section className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4">
@@ -192,27 +192,25 @@ const Contact = () => {
               {/* Social Links */}
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <p className="text-sm text-gray-600 mb-4">
-                  Follow me on social media
+                  Find me on marketplace
                 </p>
                 <div className="flex gap-3">
-                  {["Twitter", "Facebook", "Fiverr", "LinkedIn"].map(
-                    (social) => (
-                      <motion.a
-                        key={social}
-                        href={socialLinks[social]}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-[#940000] hover:text-white transition-colors"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        title={`Follow on ${social}`}
-                      >
-                        <span className="text-sm font-semibold">
-                          {social[0]}
-                        </span>
-                      </motion.a>
-                    )
-                  )}
+                  {["Fiverr"].map((social) => (
+                    <motion.a
+                      key={social}
+                      href={socialLinks[social]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-3 bg-gradient-to-r from-[#940000] to-[#7a0000] text-white rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold"
+                      whileHover={{
+                        scale: 1.05,
+                        y: -2,
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <span className="text-sm">Hire on {social}</span>
+                    </motion.a>
+                  ))}
                 </div>
               </div>
             </div>
