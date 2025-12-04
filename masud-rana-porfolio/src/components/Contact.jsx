@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-// import emailjs from "@emailjs/browser";
+import emailjs from "@emailjs/browser";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from "sweetalert";
@@ -7,6 +7,15 @@ import { motion } from "framer-motion";
 
 const Contact = () => {
   const form = useRef();
+
+  // EmailJS Configuration - CORRECTED
+  const EMAILJS_CONFIG = {
+    SERVICE_ID: "service_dwdjhsb", // EmailJS service ID
+    CUSTOMER_TEMPLATE_ID: "template_0nzw8sf", // Contact Us template
+    ADMIN_TEMPLATE_ID: "template_3tvekct", // Auto-Reply template
+    PUBLIC_KEY: "SMNywnq1D-NLZBFPL", // EmailJS public key
+  };
+
   const validationSchema = Yup.object({
     name: Yup.string().required("Name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
@@ -16,30 +25,154 @@ const Contact = () => {
     message: Yup.string().required("Message is required"),
   });
 
-  const sendEmail = (values, { setSubmitting, resetForm }) => {
-    // emailjs
-    //   .sendForm(
-    //     'service_whifq85',
-    //     'template_xzhn5sk',
-    //     form.current,
-    //     'jxrJJXO1pe8kitiEN',
-    //   )
-    //   .then(
-    //     () => {
-    //       swal({
-    //         title: "Thanks",
-    //         text: "I will contact with you ASAP.",
-    //         icon: "success",
-    //         button: "OK",
-    //       });
-    //       setSubmitting(false);
-    //       resetForm();
-    //     },
-    //     (error) => {
-    //       console.log("FAILED...", error);
-    //       setSubmitting(false);
-    //     }
-    //   );
+  const sendEmail = async (values, { setSubmitting, resetForm }) => {
+    try {
+      console.log("Sending email with values:", values);
+      
+      // 1. Send to customer (Auto-Reply - template_3tvekct)
+        const customerResult = await emailjs.send(
+      "service_dwdjhsb", // আপনার SERVICE_ID
+      "template_3tvekct", // Auto-Reply Template ID
+      {
+        to_name: values.name,        // Template এর {{to_name}}
+        to_email: values.email,      // Template এর {{to_email}} - এখানে খালি হবে না
+        from_name: values.name,      // Template এর {{from_name}}
+        from_email: values.email,    // Template এর {{from_email}}
+        phone: values.phone || "Not provided",
+        service: values.service,
+        budget: values.budget,
+        message: values.message,
+        date: new Date().toLocaleDateString('en-BD'),
+        time: new Date().toLocaleTimeString('en-BD'),
+        reply_to: "masudrana.free24@gmail.com",
+      },
+      "SMNywnq1D-NLZBFPL" // আপনার PUBLIC_KEY
+    );
+
+      console.log("Auto-Reply sent to customer:", customerResult.text);
+
+      // 2. Send to yourself (Contact Us - template_0nzw8sf)
+     const adminResult = await emailjs.send(
+      "service_dwdjhsb", // আপনার SERVICE_ID
+      "template_0nzw8sf", // Contact Us Template ID
+      {
+        to_name: "Masud Rana",                   // Template এর {{to_name}}
+        to_email: "masudrana.free24@gmail.com",  // Template এর {{to_email}} - এখানে খালি হবে না
+        client_name: values.name,
+        client_email: values.email,
+        client_phone: values.phone || "Not provided",
+        service_requested: values.service,
+        budget_range: values.budget,
+        project_details: values.message,
+        date: new Date().toLocaleDateString('en-BD'),
+        time: new Date().toLocaleTimeString('en-BD'),
+        subject: `New Project Inquiry - ${values.service}`
+      },
+      "SMNywnq1D-NLZBFPL" // আপনার PUBLIC_KEY
+    );
+    
+
+      console.log("Notification sent to admin:", adminResult.text);
+
+      // Success message
+      swal({
+        title: "Message Sent Successfully! 🎉",
+        text: "Thank you! I've received your message and will contact you within 24 hours. Check your email for confirmation.",
+        icon: "success",
+        buttons: {
+          confirm: {
+            text: "OK",
+            value: true,
+            visible: true,
+            className: "bg-[#940000]"
+          }
+        }
+      });
+
+      setSubmitting(false);
+      resetForm();
+
+    } catch (error) {
+      console.error("Email sending error:", error);
+      
+      let errorMessage = "Something went wrong. Please try again.";
+      
+      // Specific error messages
+      if (error.status === 400) {
+        errorMessage = "Invalid email parameters. Please check your information.";
+      } else if (error.status === 401) {
+        errorMessage = "Email service authentication failed.";
+      } else if (error.status === 403) {
+        errorMessage = "Email sending quota exceeded. Please try again later.";
+      } else if (error.text) {
+        errorMessage = `EmailJS Error: ${error.text}`;
+      }
+      
+      swal({
+        title: "Oops!",
+        text: errorMessage,
+        icon: "error",
+        buttons: {
+          confirm: {
+            text: "Try Again",
+            value: true,
+            visible: true,
+            className: "bg-red-500"
+          },
+          contact: {
+            text: "Contact Directly",
+            value: "contact",
+            visible: true,
+            className: "bg-gray-500"
+          }
+        }
+      }).then((value) => {
+        if (value === "contact") {
+          window.location.href = "mailto:masudranafree24@gmail.com";
+        }
+        setSubmitting(false);
+      });
+    }
+  };
+
+  // Test email function (temporary)
+  const sendTestEmail = () => {
+    emailjs
+      .send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.CUSTOMER_TEMPLATE_ID,
+        {
+          to_name: "Masud Rana",
+          to_email: "masudranafree24@gmail.com",
+          client_name: "Test User",
+          client_email: "test@example.com",
+          client_phone: "+880 1234567890",
+          service_requested: "Logo Design",
+          budget_range: "৳5,000 - ৳10,000",
+          project_details: "This is a test message for EmailJS integration.",
+          date: new Date().toLocaleDateString(),
+          subject: "Test Project Inquiry"
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      )
+      .then((result) => {
+        console.log("Test email successful:", result.text);
+        swal({
+          title: "Test Email Sent! ✅",
+          text: "Check your EmailJS dashboard and email inbox.",
+          icon: "success",
+          button: "OK",
+        });
+      })
+      .catch((error) => {
+        console.error("Test email failed:", error);
+        swal({
+          title: "Test Failed",
+          text: error.text || error.message,
+          icon: "error",
+          button: "OK",
+        });
+      });
   };
 
   const serviceOptions = [
@@ -60,12 +193,11 @@ const Contact = () => {
     "৳20,000+",
     "Not Sure",
   ];
+
   const socialLinks = {
-    // Twitter: "https://x.com/MasudRana0161",
-    // Facebook: "https://www.facebook.com/profile.php?id=61580500531550",
     Fiverr: "https://www.fiverr.com/s/2KlPZLL",
-    // LinkedIn: "http://linkedin.com/in/masud-rana-a6821512a",
   };
+
   return (
     <section className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -90,9 +222,33 @@ const Contact = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            Ready to bring your vision to life? Get in touch and let's discuss
-            your project
+            Ready to bring your vision to life? Get in touch and let's discuss your project
           </motion.p>
+
+          {/* EmailJS Status Indicator */}
+          <motion.div
+            className="mt-4 inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span className="text-sm">
+              Contact form is active - I'll respond within 24 hours
+            </span>
+          </motion.div>  
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -127,10 +283,11 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">Phone</p>
+                    <p className="text-sm text-gray-600">Phone / WhatsApp</p>
                     <p className="font-semibold text-gray-800">
                       +880 1680128589
                     </p>
+                    <p className="text-xs text-gray-500 mt-1">24/7 Available</p>
                   </div>
                 </div>
 
@@ -151,9 +308,12 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">Email</p>
+                    <p className="text-sm text-gray-600">Primary Email</p>
                     <p className="font-semibold text-gray-800">
-                      masudrana.free24@gmail.com
+                      masudranafree24@gmail.com
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      Fastest response
                     </p>
                   </div>
                 </div>
@@ -170,21 +330,16 @@ const Contact = () => {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">Location</p>
+                    <p className="text-sm text-gray-600">Response Time</p>
                     <p className="font-semibold text-gray-800">
-                      Dhaka, Bangladesh
+                      Within 24 Hours
                     </p>
+                    <p className="text-xs text-gray-500 mt-1">Usually faster</p>
                   </div>
                 </div>
               </div>
@@ -215,27 +370,81 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Quick Stats */}
+            {/* Response Time Guarantee */}
             <div className="bg-gradient-to-r from-[#940000] to-[#7a0000] rounded-2xl p-6 text-white shadow-xl">
-              <h4 className="text-lg font-semibold mb-4">Why Work With Me?</h4>
-              <div className="space-y-3">
-                {[
-                  "✓ 5+ Years Experience",
-                  "✓ 50+ Projects Completed",
-                  "✓ Quick Turnaround",
-                  "✓ Unlimited Revisions",
-                  "✓ 24/7 Support",
-                ].map((item, index) => (
-                  <motion.p
-                    key={index}
-                    className="text-sm opacity-90"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.8 + index * 0.1 }}
-                  >
-                    {item}
-                  </motion.p>
-                ))}
+              <h4 className="text-lg font-semibold mb-4">Response Guarantee</h4>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold">24-Hour Response</p>
+                    <p className="text-sm opacity-90">
+                      Guaranteed reply within 24 hours
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Free Consultation</p>
+                    <p className="text-sm opacity-90">
+                      30-minute free project discussion
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Project Updates</p>
+                    <p className="text-sm opacity-90">
+                      Regular progress updates
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -247,13 +456,33 @@ const Contact = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                Start Your Project
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Fill out the form and I'll get back to you within 24 hours
-              </p>
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 text-gray-800">
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                    Start Your Project
+                  </h3>
+                  <p className="text-gray-600">
+                    Fill out the form and I'll get back to you within 24 hours
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-sm font-medium">Active</span>
+                </div>
+              </div>
 
               <Formik
                 initialValues={{
@@ -267,8 +496,8 @@ const Contact = () => {
                 validationSchema={validationSchema}
                 onSubmit={sendEmail}
               >
-                {({ isSubmitting, values }) => (
-                  <Form className="space-y-6">
+                {({ isSubmitting, values, handleSubmit }) => (
+                  <Form className="space-y-6" onSubmit={handleSubmit}>
                     {/* Personal Information */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
@@ -326,7 +555,7 @@ const Contact = () => {
                           type="tel"
                           name="phone"
                           id="phone"
-                          placeholder="Enter your phone number"
+                          placeholder="+880 1XXX-XXXXXX"
                           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#940000] focus:border-transparent transition-all duration-300"
                         />
                         <ErrorMessage
@@ -392,18 +621,28 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-gray-700 mb-2"
-                      >
-                        Project Details *
-                      </label>
+                      <div className="flex items-center justify-between mb-2">
+                        <label
+                          htmlFor="message"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Project Details *
+                        </label>
+                        <span className="text-xs text-gray-500">
+                          Be specific for better estimation
+                        </span>
+                      </div>
                       <Field
                         as="textarea"
                         name="message"
                         id="message"
                         rows="6"
-                        placeholder="Tell me about your project, goals, timeline, and any specific requirements..."
+                        placeholder="Tell me about your project, goals, timeline, and any specific requirements... Include:
+                        - Project purpose
+                        - Target audience  
+                        - Color preferences
+                        - Any references or examples
+                        - Deadline expectations"
                         className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#940000] focus:border-transparent transition-all duration-300 resize-none"
                       />
                       <ErrorMessage
@@ -417,22 +656,69 @@ const Contact = () => {
                     <motion.button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-[#940000] to-[#7a0000] text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-gradient-to-r from-[#940000] to-[#7a0000] text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
                       whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      {isSubmitting ? (
-                        <div className="flex items-center justify-center gap-2">
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                          Sending Message...
-                        </div>
-                      ) : (
-                        "Send Message & Start Project"
-                      )}
+                      <span className="relative z-10">
+                        {isSubmitting ? (
+                          <div className="flex items-center justify-center gap-2">
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            Sending Message...
+                          </div>
+                        ) : (
+                          "Send Message & Start Project"
+                        )}
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#7a0000] to-[#940000] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </motion.button>
+
+                    {/* Privacy Note */}
+                    <p className="text-xs text-gray-500 text-center">
+                      Your information is secure and will only be used to
+                      contact you regarding your project. I never share your
+                      details with third parties.
+                    </p>
                   </Form>
                 )}
               </Formik>
+            </div>
+
+            {/* Statistics */}
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                {
+                  label: "Response Time",
+                  value: "24h",
+                  color: "bg-green-100 text-green-800",
+                },
+                {
+                  label: "Projects Done",
+                  value: "50+",
+                  color: "bg-blue-100 text-blue-800",
+                },
+                {
+                  label: "Client Satisfaction",
+                  value: "100%",
+                  color: "bg-purple-100 text-purple-800",
+                },
+                {
+                  label: "Revision Rounds",
+                  value: "Unlimited",
+                  color: "bg-orange-100 text-orange-800",
+                },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className={`${stat.color} p-4 rounded-xl text-center shadow-sm`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 + index * 0.1 }}
+                >
+                  <div className="text-2xl font-bold mb-1">{stat.value}</div>
+                  <div className="text-sm font-medium">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

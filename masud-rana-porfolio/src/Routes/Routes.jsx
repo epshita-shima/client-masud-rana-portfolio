@@ -16,6 +16,7 @@ import ProtectedRoute from "../components/ProtectedRoute";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
 import NotFound from "../pages/NotFound";
 import Services from "../components/Services";
+import OrderConfirmation from "../components/OrderConfirmation";
 
 export const router = createBrowserRouter([
   {
@@ -39,8 +40,8 @@ export const router = createBrowserRouter([
         element: <Work></Work>,
       },
       {
-        path:"services",
-        element:<Services></Services>
+        path: "services",
+        element: <Services></Services>,
       },
       {
         path: "/blog",
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
         element: <OrderSuccess></OrderSuccess>,
       },
       {
+        path: "/order-confirmation",
+        element: <OrderConfirmation />,
+      },
+      {
         path: "/admin/login",
         element: <AdminLogin></AdminLogin>,
       },
@@ -70,7 +75,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/admin/login" replace />
+        element: <Navigate to="/admin/login" replace />,
       },
       {
         path: "login",
@@ -83,12 +88,12 @@ export const router = createBrowserRouter([
             <AdminDashboard />
           </ProtectedRoute>
         ),
-      }
+      },
     ],
   },
   // Add catch-all route for 404 pages
   {
     path: "*",
-    element: <NotFound /> // Create this component
-  }
+    element: <NotFound />, // Create this component
+  },
 ]);

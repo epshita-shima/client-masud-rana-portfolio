@@ -212,7 +212,7 @@ const Footer = () => {
               {" "}
               All rights reserved by Masud Rana
             </span>{" "}
-            | Professional Graphic Designer
+            | Professional Graphic Designer | Design & Developed by Shima
           </p>
         </aside>
         <nav className="hidden sm:block">
