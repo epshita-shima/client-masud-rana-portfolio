@@ -3,28 +3,58 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
-import logo1 from "../assets/image/logo_design/aesthetic_stitch.jpg";
-import logo2 from "../assets/image/logo_design/aurelian_spa.jpg";
-import logo3 from "../assets/image/logo_design/grey_vouge.jpg";
-import logo4 from "../assets/image/logo_design/lady_j.jpg";
-import logo5 from "../assets/image/logo_design/mauvefin.jpg";
-import logo6 from "../assets/image/logo_design/olive_june.jpg";
-import logo7 from "../assets/image/logo_design/skydusk.jpg";
-import logo8 from "../assets/image/logo_design/strivex.jpg";
-import logo9 from "../assets/image/logo_design/time_machine.jpg";
+import logo1 from "../assets/image/logo_design/leatest_logo/Beautycare_Logo_19.jpg";
+import logo2 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_12.jpg";
+import logo3 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_14.jpg";
+import logo4 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_15.jpg";
+import logo5 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_16.jpg";
+import logo6 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_17.jpg";
+import logo7 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_2.jpg";
+import logo8 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_7.jpg";
+import logo9 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_8.jpg";
+import logoImage1 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_1.jpg"; 
+import logoImage2 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_11.jpg"; 
+import logoImage3 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_20.jpg"; 
+import logoImage4 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_4.jpg"; 
+import logoImage5 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_5.jpg";
+import logoImage6 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_9.jpg"; 
+import logoImage7 from "../assets/image/logo_design/leatest_logo/RealEstate_Logo_10.jpg";
+import logoImage8 from "../assets/image/logo_design/leatest_logo/Tech_Logo_13.jpg"; 
+import logoImage9 from "../assets/image/logo_design/leatest_logo/RealEstate_Logo_18.jpg"; 
+import logoImage10 from "../assets/image/logo_design/leatest_logo/Tech_Logo_3.jpg"; 
+import logoImage11 from "../assets/image/logo_design/leatest_logo/Tech_Logo_6.jpg"; 
+
 import waterMark from "../assets/image/logo_design/watermark_icon.jpg";
 
-const allWorks = [
-    { id: 1, name: "Aesthetic Stitch", price: 1000, image: logo1, category: "fashion" },
-    { id: 2, name: "Aurelian Spa", price: 1000, image: logo2, category: "beauty" },
-    { id: 3, name: "Time Machine", price: 1000, image: logo9, category: "tech" },
-    { id: 4, name: "Grey Vogue", price: 1000, image: logo3, category: "fashion" },
-    { id: 5, name: "Lady J", price: 1000, image: logo4, category: "beauty" },
-    { id: 6, name: "Mauvefin", price: 1000, image: logo5, category: "finance" },
-    { id: 7, name: "Olive June", price: 1000, image: logo6, category: "lifestyle" },
-    { id: 8, name: "Skydusk", price: 1000, image: logo7, category: "tech" },
-    { id: 9, name: "Strivex", price: 1000, image: logo8, category: "sports" },
-  ];
+const allWorks =  [
+  { id: 1, name: "Aura Beauty", price: 1000, image: logo1, category: "beauty" },
+  { id: 2, name: "Chic Couture", price: 1000, image: logo2, category: "fashion" },
+  { id: 3, name: "TechSphere", price: 1000, image: logo9, category: "tech" },
+  { id: 4, name: "Vogue Threads", price: 1000, image: logo3, category: "fashion" },
+  { id: 5, name: "Elegance Spa", price: 1000, image: logo4, category: "beauty" },
+  { id: 6, name: "Capital Edge", price: 1000, image: logo5, category: "finance" },
+  { id: 7, name: "Urban Living", price: 1000, image: logo6, category: "lifestyle" },
+  { id: 8, name: "CloudTech", price: 1000, image: logo7, category: "tech" },
+  { id: 9, name: "Pro Athletics", price: 1000, image: logo8, category: "sports" },
+  
+  // Minimalist logos
+  { id: 10, name: "Pure Design", price: 1000, image: logoImage1, category: "minimalist" },
+  { id: 11, name: "Simple Essence", price: 1000, image: logoImage2, category: "minimalist" },
+  { id: 12, name: "Clean Lines", price: 1000, image: logoImage3, category: "minimalist" },
+  { id: 13, name: "Bold Simplicity", price: 1000, image: logoImage4, category: "minimalist" },
+  { id: 14, name: "Modern Minimal", price: 1000, image: logoImage5, category: "minimalist" },
+  { id: 15, name: "Essential Design", price: 1000, image: logoImage6, category: "minimalist" },
+  
+  // Real Estate
+  { id: 16, name: "Prime Properties", price: 1000, image: logoImage7, category: "real-estate" },
+  { id: 17, name: "Sky Estates", price: 1000, image: logoImage9, category: "real-estate" },
+  
+  // Tech
+  { id: 18, name: "Digital Frontier", price: 1000, image: logoImage8, category: "tech" },
+  { id: 19, name: "Innovate Tech", price: 1000, image: logoImage10, category: "tech" },
+  { id: 20, name: "Future Systems", price: 1000, image: logoImage11, category: "tech" }
+];
+
 
 const WorkGalary = () => {
   const [selectedImage, setSelectedImage] = useState(null);

@@ -138,7 +138,7 @@ return (
           
           {/* Glow Effect */}
           <motion.div 
-            className="absolute inset-0 rounded-full bg-[#940000] blur-xl opacity-50 z-0"
+            className="absolute inset-0 rounded-full  blur-xl opacity-50 z-0"
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.4, 0.6, 0.4]

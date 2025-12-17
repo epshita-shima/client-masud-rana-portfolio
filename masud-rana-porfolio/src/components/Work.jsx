@@ -1,27 +1,51 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
-import logo1 from "../assets/image/logo_design/aesthetic_stitch.jpg";
-import logo2 from "../assets/image/logo_design/aurelian_spa.jpg";
-import logo3 from "../assets/image/logo_design/grey_vouge.jpg";
-import logo4 from "../assets/image/logo_design/lady_j.jpg";
-import logo5 from "../assets/image/logo_design/mauvefin.jpg";
-import logo6 from "../assets/image/logo_design/olive_june.jpg";
-import logo7 from "../assets/image/logo_design/skydusk.jpg";
-import logo8 from "../assets/image/logo_design/strivex.jpg";
-import logo9 from "../assets/image/logo_design/time_machine.jpg";
+
+import logo1 from "../assets/image/logo_design/leatest_logo/Beautycare_Logo_19.jpg";
+import logo2 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_12.jpg";
+import logo3 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_14.jpg";
+import logo4 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_15.jpg";
+import logo5 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_16.jpg";
+import logo6 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_17.jpg";
+import logo7 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_2.jpg";
+import logo8 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_7.jpg";
+import logo9 from "../assets/image/logo_design/leatest_logo/Fashion_Logo_8.jpg";
+import logoImage1 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_1.jpg"; 
+import logoImage2 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_11.jpg"; 
+import logoImage3 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_20.jpg"; 
+import logoImage4 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_4.jpg"; 
+import logoImage5 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_5.jpg";
+import logoImage6 from "../assets/image/logo_design/leatest_logo/Minimalist_Logo_9.jpg"; 
+import logoImage7 from "../assets/image/logo_design/leatest_logo/RealEstate_Logo_10.jpg";
+import logoImage8 from "../assets/image/logo_design/leatest_logo/Tech_Logo_13.jpg"; 
+import logoImage9 from "../assets/image/logo_design/leatest_logo/RealEstate_Logo_18.jpg"; 
+import logoImage10 from "../assets/image/logo_design/leatest_logo/Tech_Logo_3.jpg"; 
+import logoImage11 from "../assets/image/logo_design/leatest_logo/Tech_Logo_6.jpg"; 
+
 import logoImage from "../assets/image/logo_design/watermark_icon.jpg";
 
 const allLogos = [
-  { id: 1, img: logo1, title: "Aesthetic Stitch" },
-  { id: 2, img: logo2, title: "Aurelian Spa" },
-  { id: 3, img: logo9, title: "Time Machine" },
-  { id: 4, img: logo3, title: "Grey Vogue" },
-  { id: 5, img: logo4, title: "Lady J" },
-  { id: 6, img: logo5, title: "Mauvefin" },
-  { id: 7, img: logo6, title: "Olive June" },
-  { id: 8, img: logo7, title: "Skydusk" },
-  { id: 9, img: logo8, title: "Strivex" },
+  { id: 1, img: logo1, title: "Beautycare" },
+  { id: 2, img: logo2, title: "Fashion Logo" },
+  { id: 3, img: logo3, title: "Fashion Style" },
+  { id: 4, img: logo4, title: "Fashion Elegance" },
+  { id: 5, img: logo5, title: "Fashion Modern" },
+  { id: 6, img: logo6, title: "Fashion Luxe" },
+  { id: 7, img: logo7, title: "Fashion Classic" },
+  { id: 8, img: logo8, title: "Fashion Chic" },
+  { id: 9, img: logo9, title: "Fashion Trend" },
+  { id: 10, img: logoImage1, title: "Minimalist Pure" },
+  { id: 11, img: logoImage2, title: "Minimalist Simple" },
+  { id: 12, img: logoImage3, title: "Minimalist Clean" },
+  { id: 13, img: logoImage4, title: "Minimalist Bold" },
+  { id: 14, img: logoImage5, title: "Minimalist Modern" },
+  { id: 15, img: logoImage6, title: "Minimalist Essential" },
+  { id: 16, img: logoImage7, title: "Real Estate Prime" },
+  { id: 17, img: logoImage8, title: "Tech Innovate" },
+  { id: 18, img: logoImage9, title: "Real Estate Sky" },
+  { id: 19, img: logoImage10, title: "Tech Future" },
+  { id: 20, img: logoImage11, title: "Tech Digital" }
 ];
 
 const Work = () => {
