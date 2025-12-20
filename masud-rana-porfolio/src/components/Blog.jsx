@@ -121,63 +121,63 @@ const Blog = () => {
           "Logo Design Tips",
         ],
       },
-      {
-        id: 2,
-        title: "The Art of Logo Design: Creating Memorable Brand Identities",
-        author: "Masud Rana",
-        date: "2025-04-01",
-        category: "Logo Design",
-        excerpt:
-          "Discover the principles behind creating logos that stand the test of time and effectively communicate brand values...",
-        thumbnail:
-          "https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        content: "Full content about logo design principles...",
-        readTime: "5 min read",
-        tags: ["Logo", "Branding", "Design"],
-      },
-      {
-        id: 3,
-        title: "Color Psychology in Graphic Design: Choosing the Right Palette",
-        author: "Masud Rana",
-        date: "2025-03-25",
-        category: "Design Theory",
-        excerpt:
-          "Learn how different colors evoke emotions and how to use color psychology to enhance your design projects...",
-        thumbnail:
-          "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        content: "Full content about color psychology...",
-        readTime: "7 min read",
-        tags: ["Color", "Psychology", "Design"],
-      },
-      {
-        id: 4,
-        title:
-          "Typography Essentials: Choosing Fonts That Speak Your Brand Voice",
-        author: "Masud Rana",
-        date: "2025-03-18",
-        category: "Typography",
-        excerpt:
-          "Explore the world of typography and learn how to select fonts that perfectly match your brand personality...",
-        thumbnail:
-          "https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        content: "Full content about typography...",
-        readTime: "6 min read",
-        tags: ["Typography", "Fonts", "Branding"],
-      },
-      {
-        id: 5,
-        title: "From Sketch to Digital: My Design Process Explained",
-        author: "Masud Rana",
-        date: "2025-03-10",
-        category: "Design Process",
-        excerpt:
-          "Take a behind-the-scenes look at my complete design workflow from initial concept to final delivery...",
-        thumbnail:
-          "https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        content: "Full content about design process...",
-        readTime: "8 min read",
-        tags: ["Process", "Workflow", "Design"],
-      },
+      // {
+      //   id: 2,
+      //   title: "The Art of Logo Design: Creating Memorable Brand Identities",
+      //   author: "Masud Rana",
+      //   date: "2025-04-01",
+      //   category: "Logo Design",
+      //   excerpt:
+      //     "Discover the principles behind creating logos that stand the test of time and effectively communicate brand values...",
+      //   thumbnail:
+      //     "https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      //   content: "Full content about logo design principles...",
+      //   readTime: "5 min read",
+      //   tags: ["Logo", "Branding", "Design"],
+      // },
+      // {
+      //   id: 3,
+      //   title: "Color Psychology in Graphic Design: Choosing the Right Palette",
+      //   author: "Masud Rana",
+      //   date: "2025-03-25",
+      //   category: "Design Theory",
+      //   excerpt:
+      //     "Learn how different colors evoke emotions and how to use color psychology to enhance your design projects...",
+      //   thumbnail:
+      //     "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      //   content: "Full content about color psychology...",
+      //   readTime: "7 min read",
+      //   tags: ["Color", "Psychology", "Design"],
+      // },
+      // {
+      //   id: 4,
+      //   title:
+      //     "Typography Essentials: Choosing Fonts That Speak Your Brand Voice",
+      //   author: "Masud Rana",
+      //   date: "2025-03-18",
+      //   category: "Typography",
+      //   excerpt:
+      //     "Explore the world of typography and learn how to select fonts that perfectly match your brand personality...",
+      //   thumbnail:
+      //     "https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      //   content: "Full content about typography...",
+      //   readTime: "6 min read",
+      //   tags: ["Typography", "Fonts", "Branding"],
+      // },
+      // {
+      //   id: 5,
+      //   title: "From Sketch to Digital: My Design Process Explained",
+      //   author: "Masud Rana",
+      //   date: "2025-03-10",
+      //   category: "Design Process",
+      //   excerpt:
+      //     "Take a behind-the-scenes look at my complete design workflow from initial concept to final delivery...",
+      //   thumbnail:
+      //     "https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      //   content: "Full content about design process...",
+      //   readTime: "8 min read",
+      //   tags: ["Process", "Workflow", "Design"],
+      // },
     ];
 
     setBlogs(data);
@@ -219,10 +219,10 @@ const Blog = () => {
   ];
 
   const recentPosts = [
-    { id: 201, title: "Building Responsive Layouts in Modern Design" },
-    { id: 202, title: "Understanding Color Theory in Depth" },
-    { id: 203, title: "The Power of Minimalism in Brand Design" },
-    { id: 204, title: "Creating Effective Social Media Graphics" },
+    { id: 201, title: "Complete Guide to Logo Design: Principles, Process & Professional Tips" },
+    // { id: 202, title: "Understanding Color Theory in Depth" },
+    // { id: 203, title: "The Power of Minimalism in Brand Design" },
+    // { id: 204, title: "Creating Effective Social Media Graphics" },
   ];
 
   const tags = [

@@ -26,26 +26,26 @@ import logoImage11 from "../assets/image/logo_design/leatest_logo/Tech_Logo_6.jp
 import logoImage from "../assets/image/logo_design/watermark_icon.jpg";
 
 const allLogos = [
-  { id: 1, img: logo1, title: "Beautycare" },
+  { id: 1, img: logo1, title: "Beauty Fashion Logo" },
   { id: 2, img: logo2, title: "Fashion Logo" },
-  { id: 3, img: logo3, title: "Fashion Style" },
-  { id: 4, img: logo4, title: "Fashion Elegance" },
-  { id: 5, img: logo5, title: "Fashion Modern" },
-  { id: 6, img: logo6, title: "Fashion Luxe" },
-  { id: 7, img: logo7, title: "Fashion Classic" },
-  { id: 8, img: logo8, title: "Fashion Chic" },
-  { id: 9, img: logo9, title: "Fashion Trend" },
-  { id: 10, img: logoImage1, title: "Minimalist Pure" },
-  { id: 11, img: logoImage2, title: "Minimalist Simple" },
-  { id: 12, img: logoImage3, title: "Minimalist Clean" },
-  { id: 13, img: logoImage4, title: "Minimalist Bold" },
-  { id: 14, img: logoImage5, title: "Minimalist Modern" },
-  { id: 15, img: logoImage6, title: "Minimalist Essential" },
-  { id: 16, img: logoImage7, title: "Real Estate Prime" },
-  { id: 17, img: logoImage8, title: "Tech Innovate" },
-  { id: 18, img: logoImage9, title: "Real Estate Sky" },
-  { id: 19, img: logoImage10, title: "Tech Future" },
-  { id: 20, img: logoImage11, title: "Tech Digital" }
+  { id: 3, img: logo3, title: "Fashion Logo" },
+  { id: 4, img: logo4, title: "Fashion Logo" },
+  { id: 5, img: logo5, title: "Fashion Logo" },
+  { id: 6, img: logo6, title: "Fashion Logo" },
+  { id: 7, img: logo7, title: "Fashion Logo" },
+  { id: 8, img: logo8, title: "Fashion Logo" },
+  { id: 9, img: logo9, title: "Fashion Logo" },
+  { id: 10, img: logoImage1, title: "Minimalist Logo" },
+  { id: 11, img: logoImage2, title: "Minimalist Logo" },
+  { id: 12, img: logoImage3, title: "Minimalist Logo" },
+  { id: 13, img: logoImage4, title: "Minimalist Logo" },
+  { id: 14, img: logoImage5, title: "Minimalist Logo" },
+  { id: 15, img: logoImage6, title: "Minimalist Logo" },
+  { id: 16, img: logoImage7, title: "Real Estate Logo" },
+  { id: 17, img: logoImage8, title: "Tech Logo" },
+  { id: 18, img: logoImage9, title: "Real Estate Logo" },
+  { id: 19, img: logoImage10, title: "Tech Logo" },
+  { id: 20, img: logoImage11, title: "Tech Logo" }
 ];
 
 const Work = () => {

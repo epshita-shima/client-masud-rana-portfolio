@@ -40,32 +40,32 @@ const Services = () => {
 
   // Logo designs data
 const logoDesigns = [
-  { id: 1, name: "Aura Beauty", price: 1000, image: logo1, category: "beauty" },
-  { id: 2, name: "Chic Couture", price: 1000, image: logo2, category: "fashion" },
-  { id: 3, name: "TechSphere", price: 1000, image: logo9, category: "tech" },
-  { id: 4, name: "Vogue Threads", price: 1000, image: logo3, category: "fashion" },
-  { id: 5, name: "Elegance Spa", price: 1000, image: logo4, category: "beauty" },
-  { id: 6, name: "Capital Edge", price: 1000, image: logo5, category: "finance" },
-  { id: 7, name: "Urban Living", price: 1000, image: logo6, category: "lifestyle" },
-  { id: 8, name: "CloudTech", price: 1000, image: logo7, category: "tech" },
-  { id: 9, name: "Pro Athletics", price: 1000, image: logo8, category: "sports" },
+  { id: 1, name: "Beauty Fashion Logo", price: 1000, image: logo1, category: "beauty" },
+  { id: 2, name: "Fashion Logo", price: 1000, image: logo2, category: "fashion" },
+  { id: 3, name: "Tech Logo", price: 1000, image: logo9, category: "tech" },
+  { id: 4, name: "Fashion Logo", price: 1000, image: logo3, category: "fashion" },
+  { id: 5, name: "Fashion Logo", price: 1000, image: logo4, category: "beauty" },
+  { id: 6, name: "Fashion Logo", price: 1000, image: logo5, category: "finance" },
+  { id: 7, name: "Fashion Logo", price: 1000, image: logo6, category: "lifestyle" },
+  { id: 8, name: "Tech Logo", price: 1000, image: logo7, category: "tech" },
+  { id: 9, name: "Fashion Logo", price: 1000, image: logo8, category: "sports" },
   
   // Minimalist logos
-  { id: 10, name: "Pure Design", price: 1000, image: logoImage1, category: "minimalist" },
-  { id: 11, name: "Simple Essence", price: 1000, image: logoImage2, category: "minimalist" },
-  { id: 12, name: "Clean Lines", price: 1000, image: logoImage3, category: "minimalist" },
-  { id: 13, name: "Bold Simplicity", price: 1000, image: logoImage4, category: "minimalist" },
-  { id: 14, name: "Modern Minimal", price: 1000, image: logoImage5, category: "minimalist" },
-  { id: 15, name: "Essential Design", price: 1000, image: logoImage6, category: "minimalist" },
+  { id: 10, name: "Minimalist Logo", price: 1000, image: logoImage1, category: "minimalist" },
+  { id: 11, name: "Minimalist Logo", price: 1000, image: logoImage2, category: "minimalist" },
+  { id: 12, name: "Minimalist Logo", price: 1000, image: logoImage3, category: "minimalist" },
+  { id: 13, name: "Minimalist Logo", price: 1000, image: logoImage4, category: "minimalist" },
+  { id: 14, name: "Minimalist Logo", price: 1000, image: logoImage5, category: "minimalist" },
+  { id: 15, name: "Minimalist Logo", price: 1000, image: logoImage6, category: "minimalist" },
   
   // Real Estate
-  { id: 16, name: "Prime Properties", price: 1000, image: logoImage7, category: "real-estate" },
-  { id: 17, name: "Sky Estates", price: 1000, image: logoImage9, category: "real-estate" },
+  { id: 16, name: "Real Estate Logo", price: 1000, image: logoImage7, category: "real-estate" },
+  { id: 17, name: "Real Estate Logo", price: 1000, image: logoImage9, category: "real-estate" },
   
   // Tech
-  { id: 18, name: "Digital Frontier", price: 1000, image: logoImage8, category: "tech" },
-  { id: 19, name: "Innovate Tech", price: 1000, image: logoImage10, category: "tech" },
-  { id: 20, name: "Future Systems", price: 1000, image: logoImage11, category: "tech" }
+  { id: 18, name: "Tech Logo", price: 1000, image: logoImage8, category: "tech" },
+  { id: 19, name: "Tech Logo", price: 1000, image: logoImage10, category: "tech" },
+  { id: 20, name: "Tech Logo", price: 1000, image: logoImage11, category: "tech" }
 ];
 
   // Add to cart function using Redux
