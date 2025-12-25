@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import client1 from "../assets/image/client-1.jpg";
 import client2 from "../assets/image/client-2.jpg";
 import client3 from "../assets/image/client/client_3.jpg"
+import client4 from "../assets/image/client/client_4.jpeg"
 const Client = () => {
   const clientFeedbacks = [
     {
@@ -34,15 +35,15 @@ const Client = () => {
         "Professional, talented, and reliable. Masud transformed our vague ideas into a stunning visual identity. The logo he created perfectly represents our values and vision. Highly recommended!",
       project: "Fashion Brand Logo"
     },
-    // {
-    //   img: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
-    //   name: "David Wilson",
-    //   country: "Australia",
-    //   rating: 5.0,
-    //   feedback:
-    //     "Exceptional service from start to finish! Masud understood our brand instantly and delivered a logo that we absolutely love. The entire process was smooth and collaborative.",
-    //   project: "Corporate Branding"
-    // }
+    {
+      img: client4,
+      name: "Girmay W Senbet T.",
+      country: "Turkey",
+      rating: 5.0,
+      feedback:
+        "Working with Masud is like enjoying a smooth creative journey. He delivered a clean, professional logo exactly as I wanted. Great communication and fast delivery. Highly recommended!",
+      project: "Logo Design"
+    }
   ];
 
   const settings = {

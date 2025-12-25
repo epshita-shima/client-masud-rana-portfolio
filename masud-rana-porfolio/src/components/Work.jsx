@@ -22,6 +22,10 @@ import logoImage8 from "../assets/image/logo_design/leatest_logo/Tech_Logo_13.jp
 import logoImage9 from "../assets/image/logo_design/leatest_logo/RealEstate_Logo_18.jpg"; 
 import logoImage10 from "../assets/image/logo_design/leatest_logo/Tech_Logo_3.jpg"; 
 import logoImage11 from "../assets/image/logo_design/leatest_logo/Tech_Logo_6.jpg"; 
+import logoImage12 from "../assets/image/logo_design/new_logo/Bakery Logo.jpg"
+import logoImage13 from "../assets/image/logo_design/new_logo/Clothing Brand.jpg"
+import logoImage14 from "../assets/image/logo_design/new_logo/diary Cover-2.jpg"
+import logoImage15 from "../assets/image/logo_design/new_logo/Tech Base for social media.jpg";
 
 import logoImage from "../assets/image/logo_design/watermark_icon.jpg";
 
@@ -45,7 +49,12 @@ const allLogos = [
   { id: 17, img: logoImage8, title: "Tech Logo" },
   { id: 18, img: logoImage9, title: "Real Estate Logo" },
   { id: 19, img: logoImage10, title: "Tech Logo" },
-  { id: 20, img: logoImage11, title: "Tech Logo" }
+  { id: 20, img: logoImage11, title: "Tech Logo" },
+  { id: 21, img: logoImage12, title: "Bekary Logo" },
+  { id: 22, img: logoImage13, title: "Clothing Brand Logo" },
+  { id: 23, img: logoImage15, title: "Tech Base for Social Media" },
+  { id: 24, img: logoImage14, title: "Dairy Cover" },
+  // { id: 25, img: logoImage11, title: "Tech Logo" },
 ];
 
 const Work = () => {
