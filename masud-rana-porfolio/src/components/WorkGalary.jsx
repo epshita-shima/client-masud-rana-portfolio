@@ -232,7 +232,7 @@ const WorkGalary = () => {
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#940000] pb-3"
           >
-            Logo Design Portfolio
+          Custom & Ready Logos for Sale
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
