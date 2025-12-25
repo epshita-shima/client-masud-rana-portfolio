@@ -1,40 +1,60 @@
 import React from "react";
 import { motion } from "framer-motion";
-
 const Experience = () => {
-  // Animation variants
+  // Optimized animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: 0.1,  // 0.2 থেকে 0.1
+        delayChildren: 0.1      // 0.3 থেকে 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 15 },  // 30 থেকে 15
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,  // 0.6 থেকে 0.4
         ease: "easeOut"
       }
     }
   };
 
   const listItemVariants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, x: -10 },  // 20 থেকে 10
     visible: {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.3,  // 0.5 থেকে 0.3
         ease: "easeOut"
       }
+    }
+  };
+
+  // অথবা আরও simplify করে:
+  
+  // Minimal version
+  const minimalContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,  // আরও কম
+      }
+    }
+  };
+
+  const minimalItem = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 }
     }
   };
 
