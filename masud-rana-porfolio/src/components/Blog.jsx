@@ -3,8 +3,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom"; // useNavigate ইম্পোর্ট করুন
 import logoImage from "../assets/image/logo_design/watermark_icon.jpg"; // আপনার লোগো ইমেজ ইম্পোর্ট করুন
 import { Helmet } from "react-helmet-async";
-import blog1 from "../assets/image/profile_pic/blog_1.jpg"
+import blog1 from "../assets/image/profile_pic/blog_1.jpg";
+import blog2 from "../assets/image/profile_pic/Creative Clothing Brand Logo Ideas, Professional Fashion Logo Design.jpg";
 const Blog = () => {
+  <Helmet>
+    {/* SEO Meta Title */}
+    <title>
+      Creative Clothing Brand Logo Ideas | Professional Fashion Logo Design
+    </title>
+
+    {/* SEO Meta Description */}
+    <meta
+      name="description"
+      content="Discover creative clothing brand logo ideas to build a strong fashion identity. Learn how professional logo design helps clothing brands stand out and grow."
+    />
+
+    {/* Optional SEO Boost */}
+    <meta
+      name="keywords"
+      content="clothing brand logo, fashion logo design, apparel brand logo, clothing logo design, fashion brand identity"
+    />
+    <meta name="author" content="Masud Rana" />
+  </Helmet>;
+
   const [blogs, setBlogs] = useState([]);
   const [categories, setCategories] = useState([]);
   const [filteredBlogs, setFilteredBlogs] = useState([]);
@@ -24,7 +45,7 @@ const Blog = () => {
         category: "Logo Design",
         excerpt:
           "Learn everything about logo design—from principles and types of logos to the complete design process. A detailed guide for building a strong brand identity.",
-        thumbnail:blog1,
+        thumbnail: blog1,
         content: `
         <div class="prose max-w-none">
           <h2>What Is Logo Design? (Definition & Meaning for Branding)</h2>
@@ -112,72 +133,201 @@ const Blog = () => {
       `,
         readTime: "10 min read",
         tags: [
-          "Logo Design",
-          "Professional Logo Design",
-          "Logo Design Process",
-          "Types of Logos",
-          "Brand Identity Design",
-          "Custom Logo Design",
-          "Logo Design Tips",
+          {
+            name: "Logo Design",
+            slug: "logo-design",
+            url: "/",
+          },
+          {
+            name: "Professional Logo Design",
+            slug: "professional-logo-design",
+            url: "/",
+          },
+          {
+            name: "Logo Design Process",
+            slug: "logo-design-process",
+            url: "/",
+          },
+          {
+            name: "Types of Logos",
+            slug: "types-of-logos",
+            url: "/",
+          },
+          {
+            name: "Brand Identity Design",
+            slug: "brand-identity-design",
+            url: "/",
+          },
+          {
+            name: "Custom Logo Design",
+            slug: "custom-logo-design",
+            url: "/",
+          },
+          {
+            name: "Logo Design Tips",
+            slug: "logo-design-tips",
+            url: "/",
+          },
         ],
       },
-      // {
-      //   id: 2,
-      //   title: "The Art of Logo Design: Creating Memorable Brand Identities",
-      //   author: "Masud Rana",
-      //   date: "2025-04-01",
-      //   category: "Logo Design",
-      //   excerpt:
-      //     "Discover the principles behind creating logos that stand the test of time and effectively communicate brand values...",
-      //   thumbnail:
-      //     "https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      //   content: "Full content about logo design principles...",
-      //   readTime: "5 min read",
-      //   tags: ["Logo", "Branding", "Design"],
-      // },
-      // {
-      //   id: 3,
-      //   title: "Color Psychology in Graphic Design: Choosing the Right Palette",
-      //   author: "Masud Rana",
-      //   date: "2025-03-25",
-      //   category: "Design Theory",
-      //   excerpt:
-      //     "Learn how different colors evoke emotions and how to use color psychology to enhance your design projects...",
-      //   thumbnail:
-      //     "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      //   content: "Full content about color psychology...",
-      //   readTime: "7 min read",
-      //   tags: ["Color", "Psychology", "Design"],
-      // },
-      // {
-      //   id: 4,
-      //   title:
-      //     "Typography Essentials: Choosing Fonts That Speak Your Brand Voice",
-      //   author: "Masud Rana",
-      //   date: "2025-03-18",
-      //   category: "Typography",
-      //   excerpt:
-      //     "Explore the world of typography and learn how to select fonts that perfectly match your brand personality...",
-      //   thumbnail:
-      //     "https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      //   content: "Full content about typography...",
-      //   readTime: "6 min read",
-      //   tags: ["Typography", "Fonts", "Branding"],
-      // },
-      // {
-      //   id: 5,
-      //   title: "From Sketch to Digital: My Design Process Explained",
-      //   author: "Masud Rana",
-      //   date: "2025-03-10",
-      //   category: "Design Process",
-      //   excerpt:
-      //     "Take a behind-the-scenes look at my complete design workflow from initial concept to final delivery...",
-      //   thumbnail:
-      //     "https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      //   content: "Full content about design process...",
-      //   readTime: "8 min read",
-      //   tags: ["Process", "Workflow", "Design"],
-      // },
+      {
+        id: 2,
+        title:
+          "Creative Clothing Brand Logo Ideas to Build a Strong Fashion Identity",
+        author: "Masud Rana",
+        date: "2025-04-10",
+        category: "Logo Design",
+        excerpt:
+          "Discover creative clothing brand logo ideas and learn how professional fashion logo design helps build a strong and memorable brand identity.",
+        thumbnail: blog2,
+        content: `
+    <div class="prose max-w-none">
+      <h2>Creative Clothing Brand Logo Ideas to Build a Strong Fashion Identity</h2>
+      <p>
+        In today’s competitive fashion industry, a <strong>clothing brand logo</strong>
+        plays a crucial role in brand recognition and customer trust. A strong
+        <strong>fashion logo design</strong> not only represents your brand visually
+        but also communicates your style, values, and quality at first glance.
+      </p>
+      <p>
+        If you’re launching a new brand or rebranding an existing one, choosing the
+        right <strong>clothing brand logo ideas</strong> is essential for long-term
+        success.
+      </p>
+
+      <h2>
+      <a href="services">Popular Clothing Brand Logo Ideas & Styles</a>
+      </h2>
+
+      <h3>1. Minimal Wordmark Logos</h3>
+      <p>
+        Minimal wordmark logos focus on typography and spacing, creating a clean and
+        professional look. These <strong>clothing logo designs</strong> are timeless
+        and versatile across tags, labels, and social media.
+      </p>
+      <p><strong>Best for:</strong> Luxury fashion brands, minimalist apparel labels</p>
+
+      <h3>2. Monogram & Letter Logos</h3>
+      <p>
+        Monogram logos use initials or letters to create a strong
+        <strong>apparel brand logo</strong>. They work perfectly for embroidery,
+        labels, and premium packaging.
+      </p>
+      <p><strong>Best for:</strong> High-end and personal fashion brands</p>
+
+      <h3>3. Symbol-Based Logos</h3>
+      <p>
+        Symbol-based <strong>fashion logo ideas</strong> use icons to represent brand
+        identity. Abstract or meaningful symbols help customers recognize your brand
+        instantly.
+      </p>
+      <p><strong>Best for:</strong> Casual wear, lifestyle clothing brands</p>
+
+      <h3>4. Signature or Handwritten Logos</h3>
+      <p>
+        Handwritten logos bring authenticity and creativity. These
+        <strong>custom clothing logos</strong> add personality and emotional
+        connection.
+      </p>
+      <p><strong>Best for:</strong> Boutique and creative clothing brands</p>
+
+      <h3>5. Vintage & Badge Logos</h3>
+      <p>
+        Vintage badge logos highlight tradition and craftsmanship. This
+        <strong>logo design for clothing brands</strong> style reflects heritage and
+        durability.
+      </p>
+      <p><strong>Best for:</strong> Denim, classic, and heritage fashion labels</p>
+
+      <h3>6. Bold Streetwear Logos</h3>
+      <p>
+        <strong>Streetwear logo design</strong> uses strong typography and modern
+        symbols to create impact and confidence.
+      </p>
+      <p><strong>Best for:</strong> Urban and youth-focused fashion brands</p>
+
+      <h2>How to Choose the Right Clothing Brand Logo</h2>
+      <ul>
+        <li>Target audience</li>
+        <li>Brand tone (luxury, streetwear, casual, minimal)</li>
+        <li>Logo usability across clothing tags, labels, and online platforms</li>
+        <li>Long-term branding goals</li>
+      </ul>
+      <p>
+        A professional <strong>clothing brand logo design</strong> ensures consistency
+        and scalability across all platforms.
+      </p>
+
+      <h2>
+      
+      Why Professional Fashion Logo Design Matters</h2>
+      <p>
+        A professionally designed <strong>clothing brand logo</strong> enhances brand
+        credibility and visual appeal. It ensures originality, balance, and
+        adaptability—essential qualities in the fashion industry.
+      </p>
+      <p>
+        Investing in <strong>professional logo design</strong> helps your clothing
+        brand stand out, attract customers, and build long-term brand value.
+      </p>
+
+      <p>
+        Your fashion brand logo is the foundation of your clothing brand’s identity.
+        Choosing the right logo idea—minimal, bold, symbolic, or vintage—can define
+        how customers perceive your brand.
+      </p>
+
+      <blockquote>
+        For a unique and impactful clothing logo, professional design is not an
+        option—it’s a necessity.
+      </blockquote>
+
+      <p>
+        Looking for a unique identity? Explore our
+        <a href="/" target="_self">professional logo design services</a>
+        to create a strong and professional fashion brand.
+      </p>
+    </div>
+  `,
+        readTime: "8 min read",
+        tags: [
+          {
+            name: "Clothing Brand Logo",
+            slug: "clothing-brand-logo",
+            url: "/",
+          },
+          {
+            name: "Clothing Brand Logo Ideas",
+            slug: "clothing-brand-logo-ideas",
+            url: "services",
+          },
+          {
+            name: "Fashion Logo Design",
+            slug: "fashion-logo-design",
+            url: "work",
+          },
+          {
+            name: "Apparel Brand Logo",
+            slug: "apparel-brand-logo",
+            url: "/tags/apparel-brand-logo",
+          },
+          {
+            name: "Fashion Brand Identity",
+            slug: "fashion-brand-identity",
+            url: "services",
+          },
+          {
+            name: "Professional Logo Design",
+            slug: "professional-logo-design",
+            url: "/tags/professional-logo-design",
+          },
+          {
+            name: "Get a Custom Clothing Brand Logo",
+            slug: "get a custom clothing brand logo",
+            url: "/",
+          },
+        ],
+      },
     ];
 
     setBlogs(data);
@@ -219,7 +369,11 @@ const Blog = () => {
   ];
 
   const recentPosts = [
-    { id: 201, title: "Complete Guide to Logo Design: Principles, Process & Professional Tips" },
+    {
+      id: 201,
+      title:
+        "Complete Guide to Logo Design: Principles, Process & Professional Tips",
+    },
     // { id: 202, title: "Understanding Color Theory in Depth" },
     // { id: 203, title: "The Power of Minimalism in Brand Design" },
     // { id: 204, title: "Creating Effective Social Media Graphics" },
@@ -272,7 +426,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 relative">
-         <style>
+      <style>
         {`
           .prose ul {
             list-style-type: disc;
@@ -616,14 +770,15 @@ const Blog = () => {
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
             >
               <h3 className="text-xl font-bold text-gray-800 mb-4">Tags</h3>
-              <div className="flex flex-wrap gap-2">
-                {tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-[#940000] hover:text-white transition-colors cursor-pointer"
+              <div className="flex flex-wrap gap-2 mt-6">
+                {tags?.map((tag) => (
+                  <a
+                    key={tag.slug}
+                    href={tag.url}
+                    className="text-sm px-3 py-1 rounded bg-gray-100 hover:bg-gray-200"
                   >
-                    {tag}
-                  </span>
+                    #{tag.name}
+                  </a>
                 ))}
               </div>
             </motion.div>
@@ -700,7 +855,7 @@ const Blog = () => {
                       {selectedBlog.author}
                     </p>
                     <p className="text-sm text-gray-500">
-                      Professional Graphic Designer
+                      <a href="/">Professional Graphic Designer</a>
                     </p>
                   </div>
                 </div>
@@ -716,12 +871,13 @@ const Blog = () => {
 
                   <div className="flex flex-wrap gap-2 mt-8">
                     {selectedBlog.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm"
+                      <a
+                        key={tag.slug}
+                        href={tag.url}
+                        className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-gray-200 transition-colors"
                       >
-                        #{tag}
-                      </span>
+                        #{tag.name}
+                      </a>
                     ))}
                   </div>
                 </div>
