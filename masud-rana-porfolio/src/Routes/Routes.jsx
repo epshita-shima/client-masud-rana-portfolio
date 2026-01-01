@@ -17,6 +17,7 @@ import AdminDashboard from "../pages/Admin/AdminDashboard";
 import NotFound from "../pages/NotFound";
 import Services from "../components/Services";
 import OrderConfirmation from "../components/OrderConfirmation";
+import BlogDetails from "../components/BlogDetails";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogDetails></BlogDetails>,
       },
       {
         path: "/article",
