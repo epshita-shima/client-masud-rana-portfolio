@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
@@ -203,55 +202,35 @@ const WorkGalary = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-24">
       {/* Cart Notification */}
-      <AnimatePresence>
-        {showCartNotification && (
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            className="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 flex items-center gap-2"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Item added to cart successfully!
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {showCartNotification && (
+        <div className="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 flex items-center gap-2">
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fillRule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clipRule="evenodd"
+            />
+          </svg>
+          Item added to cart successfully!
+        </div>
+      )}
 
       <div className="container mx-auto px-4 py-8">
         {/* Heading */}
         <div className="text-center mb-12">
-          <motion.h2
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#940000] pb-3"
-          >
-          Custom & Ready Logos for Sale
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-gray-600 mt-4 text-lg"
-          >
+          <h2 className="text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#940000] pb-3">
+            Custom & Ready Logos for Sale
+          </h2>
+          <p className="text-gray-600 mt-4 text-lg">
             Professional Logo Designs for Your Brand
-          </motion.p>
+          </p>
         </div>
 
         {/* Gallery Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 pb-12">
           {allWorks.map((work) => (
-            <motion.div
+            <div
               key={work.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
               className="space-y-3 shadow-2xl rounded-lg overflow-hidden bg-white flex flex-col"
             >
               {/* Image Container - Small and Centered */}
@@ -294,31 +273,25 @@ const WorkGalary = () => {
               {/* Content Section - Takes remaining space */}
               <div className="p-4 flex flex-col flex-grow">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2 flex-grow">
-                  {work.title}
+                  {work.name}
                 </h3>
                 <div className="flex justify-between items-center mt-auto">
-                  <span className="text-gray-600 text-sm">{work.name}</span>
-                  <motion.button
+                  <span className="text-gray-600 text-sm">Logo Design</span>
+                  <button
                     onClick={(e) => handleAddToCart(work, e)}
                     className="bg-[#940000] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#7a0000] transition-colors text-sm"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                   >
                     Add to Cart
-                  </motion.button>
+                  </button>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Cart Summary */}
         {cartItems.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="fixed bottom-6 right-6 bg-white shadow-2xl rounded-2xl p-6 border border-[#940000] z-40 min-w-80"
-          >
+          <div className="fixed bottom-6 right-6 bg-white shadow-2xl rounded-2xl p-6 border border-[#940000] z-40 min-w-80">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-gray-800">Shopping Cart</h3>
               <span className="bg-[#940000] text-white text-sm px-2 py-1 rounded-full">
@@ -332,7 +305,7 @@ const WorkGalary = () => {
                   className="flex justify-between items-center text-sm"
                 >
                   <span className="text-gray-600 truncate flex-1 mr-2">
-                    {item.title}
+                    {item.name}
                   </span>
                   <span className="text-[#940000] font-semibold">
                     ৳{item.price} x {item.quantity}
@@ -347,76 +320,60 @@ const WorkGalary = () => {
                   ৳{cartTotal}
                 </span>
               </div>
-              <motion.button
+              <button
                 onClick={handleCheckout}
                 className="w-full bg-[#940000] text-white py-3 rounded-xl font-semibold hover:bg-[#7a0000] transition-colors shadow-lg"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
                 Proceed to Checkout
-              </motion.button>
+              </button>
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* Protected Image Modal */}
-        <AnimatePresence>
-          {selectedImage && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedImage(null)}
-              className="fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 p-4"
-              onContextMenu={handleContextMenu}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 p-4"
+            onClick={() => setSelectedImage(null)}
+            onContextMenu={handleContextMenu}
+          >
+            <div
+              className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
             >
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center"
-                onClick={(e) => e.stopPropagation()}
+              {/* Protected Image Display */}
+              <div
+                className="w-full h-[80vh] bg-contain bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${selectedImage.image})` }}
+                onContextMenu={handleContextMenu}
+                onDragStart={handleDragStart}
+              />
+
+              {/* Corner Watermark on Modal */}
+              <div className="absolute bottom-4 right-4 pointer-events-none">
+                <div className="text-white/30 text-xl font-semibold px-4 py-2 rounded backdrop-blur-sm flex items-center gap-2">
+                  <img src={waterMark} alt="watermark" className="w-6 h-6" />
+                  <span>Masud Rana</span>
+                </div>
+              </div>
+
+              {/* Image Info */}
+              <div className="absolute bottom-4 left-4 bg-black/50 text-white px-4 py-2 rounded-lg backdrop-blur-sm">
+                <h3 className="text-lg font-medium">{selectedImage.name}</h3>
+                <p className="text-sm text-white/70">
+                  ৳{selectedImage.price}
+                </p>
+              </div>
+
+              <button
+                className="absolute -top-12 right-0 bg-white/10 text-white px-4 py-2 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-colors border border-white/20"
+                onClick={() => setSelectedImage(null)}
               >
-                {/* Protected Image Display */}
-                <div
-                  className="w-full h-[80vh] bg-contain bg-center bg-no-repeat"
-                  style={{ backgroundImage: `url(${selectedImage.image})` }}
-                  onContextMenu={handleContextMenu}
-                  onDragStart={handleDragStart}
-                />
-
-                {/* Diagonal Watermark Overlay */}
-                {/* <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-                  <div className="text-white/10 text-6xl font-bold rotate-45 transform select-none tracking-wider">
-                    Masud Rana
-                  </div>
-                </div> */}
-
-                {/* Corner Watermark on Modal */}
-                <div className="absolute bottom-4 right-4 pointer-events-none">
-                  <div className="text-white/30 text-xl font-semibold px-4 py-2 rounded backdrop-blur-sm flex items-center gap-2">
-                    <img src={waterMark} alt="watermark" className="w-6 h-6" />
-                    <span>Masud Rana</span>
-                  </div>
-                </div>
-
-                {/* Image Info */}
-                <div className="absolute bottom-4 left-4 bg-black/50 text-white px-4 py-2 rounded-lg backdrop-blur-sm">
-                  <h3 className="text-lg font-medium">{selectedImage.title}</h3>
-                  <p className="text-sm text-white/70">
-                    ৳{selectedImage.price}
-                  </p>
-                </div>
-
-                <button
-                  className="absolute -top-12 right-0 bg-white/10 text-white px-4 py-2 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-colors border border-white/20"
-                  onClick={() => setSelectedImage(null)}
-                >
-                  ✕ Close
-                </button>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                ✕ Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Global Protection Styles */}
