@@ -11,6 +11,7 @@ import './Home.css'
 import { useNavigate } from 'react-router-dom'
 import { motion } from "framer-motion";
 import logoImage from '../../../assets/image/logo_design/watermark_icon.jpg'
+import Work from '../../../components/Work'
 const Home = () => {
   const navigate = useNavigate();
 
@@ -49,6 +50,7 @@ const Home = () => {
       <Hero></Hero>
       
       <WorkGalary></WorkGalary>
+      <Work></Work>
       <Experience></Experience>
       <Client></Client>
       <Contact></Contact>

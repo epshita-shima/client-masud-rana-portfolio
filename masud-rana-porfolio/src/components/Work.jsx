@@ -26,6 +26,18 @@ import logoImage12 from "../assets/image/logo_design/new_logo/Bakery Logo.jpg"
 import logoImage13 from "../assets/image/logo_design/new_logo/Clothing Brand.jpg"
 import logoImage14 from "../assets/image/logo_design/new_logo/diary Cover-2.jpg"
 import logoImage15 from "../assets/image/logo_design/new_logo/Tech Base for social media.jpg";
+import logoImage16 from "../assets/image/logo_design/work/Apartment Business.jpg"
+import logoImage17 from "../assets/image/logo_design/work/Clothing Brand.jpg"
+import logoImage18 from "../assets/image/logo_design/work/Clothing Business.jpg"
+import logoImage19 from "../assets/image/logo_design/work/Consultancy Firm.jpg"
+import logoImage20 from "../assets/image/logo_design/work/E-Commerce.jpg"
+import logoImage21 from "../assets/image/logo_design/work/Fashion Logo.jpg"
+import logoImage22 from "../assets/image/logo_design/work/Organic Food.jpg"
+import logoImage23 from "../assets/image/logo_design/work/Pharmacy Logo.jpg"
+import logoImage24 from "../assets/image/logo_design/work/Real Estate Business.jpg"
+import logoImage25 from "../assets/image/logo_design/work/Real Estate.jpg"
+import logoImage26 from "../assets/image/logo_design/work/Travel Agency.jpg"
+
 
 import logoImage from "../assets/image/logo_design/watermark_icon.jpg";
 
@@ -54,6 +66,17 @@ const allLogos = [
   { id: 22, img: logoImage13, title: "Clothing Brand Logo" },
   { id: 23, img: logoImage15, title: "Tech Base for Social Media" },
   { id: 24, img: logoImage14, title: "Dairy Cover" },
+  { id: 25, img: logoImage16, title: "Apartment Business" },
+  { id: 26, img: logoImage17, title: "Clothing Brand" },
+  { id: 27, img: logoImage18, title: "Clothing Business" },
+  { id: 28, img: logoImage19, title: "Consultancy Firm" },
+  { id: 29, img: logoImage20, title: "E-Commerce" },
+  { id: 30, img: logoImage21, title: "Fashion Logo" },
+  { id: 31, img: logoImage22, title: "Organic Food" },
+  { id: 32, img: logoImage23, title: "Pharmacy Logo" },
+  { id: 33, img: logoImage24, title: "Real Estate Business" },
+  { id: 34, img: logoImage25, title: "Real Estate" },
+  { id: 35, img: logoImage26, title: "Travel Agency" },
   // { id: 25, img: logoImage11, title: "Tech Logo" },
 ];
 
